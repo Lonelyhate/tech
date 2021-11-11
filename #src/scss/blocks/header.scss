@@ -43,13 +43,19 @@
     font: $fontMain;
     color: $colorGrey;
     a{
-        color: $colorFFF;
-        margin-left: 4px;
-        text-decoration: none;
-        padding-bottom: 1px;
-        border-bottom: 3px solid $colorFFF;
+        display: inline;
     }
 }
+.header-top__contsctus{
+    display: none;
+    color: $colorFFF;
+    margin-left: 4px;
+    text-decoration: none;
+    padding-bottom: 1px;
+    border-bottom: 3px solid $colorFFF;
+    font: $fontMain;
+}
+
 .header-top__call {
 }
 .header-top__call-us {
@@ -164,6 +170,20 @@
 }
 .menu {
     &_hide{
+        display: none;
+    }
+    &__hide{
+        display: none;
+    }
+    &__logo-mobile{
+        display: none;
+    }
+    &__body{
+        &::before{
+            display: none;
+        }
+    }
+    &__next{
         display: none;
     }
 }
@@ -531,7 +551,7 @@
     }
     .menu{
         &__list{
-            display: none;
+            
         }
         &__icon{
             display: block;
@@ -571,6 +591,63 @@
                 background-color: $colorFFF;
             }
         }
+        &__body.menu__body_active{
+            left: 0;
+        }
+        &__body{
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 436px;
+            height: 100%;
+            background-color: $colorFFF;
+            z-index: 5;
+            transition: left 0.3s ease;
+            padding: 87px 24px 0;
+        }
+        &__list{
+            display: block;
+            max-width: 403px;
+            transition: all 0.3s ease;
+            &::after{
+                content: '';
+                position: absolute;
+                top: -12px;
+                left: 0;
+                display: block;
+                height: 1px;
+                width: 100%;
+                background-color: #CACDD8;
+            }
+        }
+        &__item{
+            padding: 0;
+        }
+        &__link{
+            justify-content: left;
+        }
+        &__hide{
+            display: block;
+            position: absolute;
+            top: 34px;
+            right: 27px;
+            cursor: pointer;
+            padding: 0;
+            background: none;
+            border: none;
+        }
+        &__logo-mobile{
+            display: block;
+            position: absolute;
+            top: 12px;
+            left: 0;
+            padding: 12px 21px;
+        }
+        &__next{
+            display: block;
+            position: relative;
+            z-index: 20;
+        }
     }
     .search{
         &__btn{
@@ -595,6 +672,59 @@
         &__quantity{
             background-color: $colorFFF;
             color: $colorBlue;
+        }
+    }
+    .submenu{
+        opacity: 1;
+        visibility: visible;
+        pointer-events: all;
+        top: 0;
+        left: 100%;
+    }
+    .sub-first{
+        top: 0px;
+        display: none;
+        border: none;
+        &::after{
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: 0;
+            display: block;
+            height: 1px;
+            width: 100%;
+            background-color: #CACDD8;
+        }
+    }
+    .sub-two{
+        opacity: 1;
+        visibility: visible;
+        pointer-events: all;
+        top: 0;
+        border: none;
+        &::after{
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: 0;
+            display: block;
+            height: 1px;
+            width: 100%;
+            background-color: #CACDD8;
+        }
+    }
+}
+
+@media (max-width: 961px) {
+    .header-top{
+        &__text{
+            display: none;
+        }
+        &__contsctus{
+            display: inline;
+        }
+        &__call{
+            display: none;
         }
     }
 }

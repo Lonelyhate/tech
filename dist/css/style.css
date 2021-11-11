@@ -149,11 +149,17 @@ dd {
 }
 
 .header-top__text a {
+  display: inline;
+}
+
+.header-top__contsctus {
+  display: none;
   color: #fff;
   margin-left: 4px;
   text-decoration: none;
   padding-bottom: 1px;
   border-bottom: 3px solid #fff;
+  font: 600 12px/18px "Poppins", sans-serif;
 }
 
 .header-top__call-us {
@@ -297,6 +303,22 @@ dd {
 }
 
 .menu_hide {
+  display: none;
+}
+
+.menu__hide {
+  display: none;
+}
+
+.menu__logo-mobile {
+  display: none;
+}
+
+.menu__body::before {
+  display: none;
+}
+
+.menu__next {
   display: none;
 }
 
@@ -783,10 +805,6 @@ dd {
     width: 100%;
   }
 
-  .menu__list {
-    display: none;
-  }
-
   .menu__icon {
     display: block;
     position: relative;
@@ -831,6 +849,78 @@ dd {
     background-color: #fff;
   }
 
+  .menu__body.menu__body_active {
+    left: 0;
+  }
+
+  .menu__body {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 436px;
+    height: 100%;
+    background-color: #fff;
+    z-index: 5;
+    -webkit-transition: left 0.3s ease;
+    -o-transition: left 0.3s ease;
+    transition: left 0.3s ease;
+    padding: 87px 24px 0;
+  }
+
+  .menu__list {
+    display: block;
+    max-width: 403px;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+
+  .menu__list::after {
+    content: "";
+    position: absolute;
+    top: -12px;
+    left: 0;
+    display: block;
+    height: 1px;
+    width: 100%;
+    background-color: #CACDD8;
+  }
+
+  .menu__item {
+    padding: 0;
+  }
+
+  .menu__link {
+    -webkit-box-pack: left;
+        -ms-flex-pack: left;
+            justify-content: left;
+  }
+
+  .menu__hide {
+    display: block;
+    position: absolute;
+    top: 34px;
+    right: 27px;
+    cursor: pointer;
+    padding: 0;
+    background: none;
+    border: none;
+  }
+
+  .menu__logo-mobile {
+    display: block;
+    position: absolute;
+    top: 12px;
+    left: 0;
+    padding: 12px 21px;
+  }
+
+  .menu__next {
+    display: block;
+    position: relative;
+    z-index: 20;
+  }
+
   .search__btn {
     display: none;
   }
@@ -854,6 +944,64 @@ dd {
   .cart__quantity {
     background-color: #fff;
     color: #0156FF;
+  }
+
+  .submenu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+    top: 0;
+    left: 100%;
+  }
+
+  .sub-first {
+    top: 0px;
+    display: none;
+    border: none;
+  }
+
+  .sub-first::after {
+    content: "";
+    position: absolute;
+    top: -12px;
+    left: 0;
+    display: block;
+    height: 1px;
+    width: 100%;
+    background-color: #CACDD8;
+  }
+
+  .sub-two {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+    top: 0;
+    border: none;
+  }
+
+  .sub-two::after {
+    content: "";
+    position: absolute;
+    top: -12px;
+    left: 0;
+    display: block;
+    height: 1px;
+    width: 100%;
+    background-color: #CACDD8;
+  }
+}
+
+@media (max-width: 961px) {
+  .header-top__text {
+    display: none;
+  }
+
+  .header-top__contsctus {
+    display: inline;
+  }
+
+  .header-top__call {
+    display: none;
   }
 }
 

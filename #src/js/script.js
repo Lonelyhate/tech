@@ -24,6 +24,11 @@ const menu = document.querySelector('.menu')
 const searchCancel = document.querySelector('.search__cancel')
 const btnProfile = document.querySelector('.profile__btn')
 const profileMenu = document.querySelector('.profile__list')
+const menuBtn = document.querySelector('.menu__icon')
+const menuClose = document.querySelector('.menu__hide')
+const menuBody = document.querySelector('.menu__body')
+const menuNext = document.querySelector('.menu__next')
+const menuList = document.querySelector('.menu__list')
 
 document.querySelector('.header-top__schedule').addEventListener('click', (e) => {
     scedule.classList.toggle('schedule_active')
@@ -62,3 +67,23 @@ document.body.addEventListener('click', e => {
         profileMenu.classList.remove('profile__list_active')
     }
 })
+
+menuBtn.addEventListener('click', () => {
+    menuBody.classList.add('menu__body_active')
+})
+
+menuClose.addEventListener('click', () => {
+    menuBody.classList.remove('menu__body_active')
+})
+
+function transformMenu(e) {
+    let self = e.currentTarget
+    let parent = self.parentNode
+    let subMenu = parent.querySelector('.submenu').querySelector('.sub-first')
+    subMenu.style.display = 'block'
+    menuList.style.transform = `translateX(-${menuListWidth}px)`
+}
+
+let menuListWidth = menuList.clientWidth
+
+menuNext.addEventListener('click', transformMenu)
