@@ -1,0 +1,20 @@
+//colors
+$colorLight: #F5F7FF;
+$colorBlue: #0156FF;
+$colorLightBlue: #01A4FF;
+$colorGrey: #A2A6B0;
+$colorLightGrey: hsl(227, 15%, 82%);
+$colorBlack: #000000;
+$colorRed: #C94D3F;
+$colorGreen: #78A962;
+$colorLightBlack: #666666;
+$colorFFF: #fff;
+
+//fonts
+$mainFonts: 'Poppins', sans-serif;
+$fontMain: 600 12px/18px $mainFonts;
+$fontMiddle: 600 14px $mainFonts;
+@media (max-width: 1200px) {
+    $fontMain: 600 11px/16px $mainFonts;
+}
+

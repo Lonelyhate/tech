@@ -1,0 +1,44 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    font-family: $mainFonts;
+    text-rendering: optimizeSpeed;
+    line-height: 1;
+    background-color: $colorLight;
+  }
+
+ul,
+ol{
+  padding: 0;
+  list-style: none;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+.container{
+    max-width: 1430px;
+    padding: 0 15px;
+    width: 100%;
+    margin: 0 auto;
+}
