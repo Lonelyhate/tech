@@ -29,6 +29,11 @@ const menuClose = document.querySelector('.menu__hide')
 const menuBody = document.querySelector('.menu__body')
 const menuNext = document.querySelector('.menu__next')
 const menuList = document.querySelector('.menu__list')
+const menuItems = document.querySelectorAll('.item-js')
+const menuBack = document.querySelector('.menu__back')
+let menuListWidth = menuList.clientWidth
+let step = 0
+let stepBack = 0
 
 document.querySelector('.header-top__schedule').addEventListener('click', (e) => {
     scedule.classList.toggle('schedule_active')
@@ -73,17 +78,133 @@ menuBtn.addEventListener('click', () => {
 })
 
 menuClose.addEventListener('click', () => {
+    const subJsMenus = document.querySelectorAll('.sub-js')
     menuBody.classList.remove('menu__body_active')
+    menuList.style.transform = `translateX(0px)`
+    subJsMenus.forEach(item => {
+        item.style.display = 'none'
+    })
+    step = 0
+})
+
+window.addEventListener('resize', () => {
+    menuListWidth = menuList.clientWidth
 })
 
 function transformMenu(e) {
-    let self = e.currentTarget
-    let parent = self.parentNode
-    let subMenu = parent.querySelector('.submenu').querySelector('.sub-first')
-    subMenu.style.display = 'block'
-    menuList.style.transform = `translateX(-${menuListWidth}px)`
+    menuBack.style.display = 'block'
+    let self = e.target
+    if (self.tagName == 'BUTTON'){
+        let parent = self.parentNode
+        let subMenu = parent.querySelector('.submenu-js')
+        let sub = parent.querySelector('.sub-js')
+        console.log()
+        
+        if (subMenu) {
+            subMenu.style.display = 'block'
+            sub.style.display = 'block'
+            step = step + menuListWidth
+            stepBack = menuListWidth
+        } else {
+            sub.style.display = 'block'
+            let subWidth = sub.clientWidth
+            step = step + subWidth 
+            stepBack = subWidth
+        }
+        menuList.style.transform = `translateX(${-step}px)`
+    }
 }
 
-let menuListWidth = menuList.clientWidth
 
-menuNext.addEventListener('click', transformMenu)
+menuItems.forEach(item => {
+    item.addEventListener('click', transformMenu)
+
+})
+
+menuBack.addEventListener('click', () => {
+    step = step - stepBack
+    menuList.style.transform = `translateX(${-step}px)`
+    if (step < 200) {
+        menuBack.style.display = 'none'
+    }
+})
+
+
+//sliders
+
+class Slider {
+    constructor() {
+
+    }
+}
+
+function sliders(wrapperSelector, fieldSelector, slidesSelector, leftSelector, rightSelector, speed) {
+    const sliderWrapper = document.querySelector(wrapperSelector)
+    const sliderField = document.querySelector(fieldSelector)
+    const slides = document.querySelectorAll(slidesSelector)
+    const leftBtn = document.querySelector(leftSelector)
+    const rightBtn = document.querySelector(rightSelector)
+    let step = sliderWrapper.clientWidth
+    let count = 1
+    sliderField.style.width = `${step * (slides.length + 2)}px`
+
+    const elemEnd = document.createElement('div')
+    elemEnd.classList.add(slidesSelector.substring(1, slidesSelector.length))
+    elemEnd.innerHTML = slides[0].innerHTML
+    sliderField.append(elemEnd)
+    const elemFirst = document.createElement('div')
+    elemFirst.classList.add(slidesSelector.substring(1, slidesSelector.length))
+    elemFirst.innerHTML = slides[slides.length - 1].innerHTML
+    sliderField.insertAdjacentElement('afterbegin', elemFirst)
+
+    sliderField.style.transform = `translateX(-${step * count}px)`
+
+    window.addEventListener('resize', () => {
+        step = sliderWrapper.clientWidth
+        sliderField.style.width = `${step * (slides.length + 2)}px`
+        sliderField.style.transform = `translateX(-${step * count}px)`
+    })
+
+    rightBtn.addEventListener('click', () => {
+        count++
+
+        sliderField.style.transition = 'all 0.3s ease-out'
+        sliderField.style.transform = `translateX(-${step * count}px)`
+        rightBtn.disabled = true
+        setTimeout(() => {
+            rightBtn.disabled = false
+            sliderField.style.transition = ''
+        }, speed)
+
+        if (count == (slides.length + 2) - 1) {
+            count = 1
+            setTimeout(() => {
+                sliderField.style.transform = `translateX(-${step * count}px)`
+            }, speed)
+        }
+    })
+    
+    leftBtn.addEventListener('click', () => {
+        count--
+        sliderField.style.transition = 'all 0.3s ease-out'
+        sliderField.style.transform = `translateX(-${step * count}px)`
+
+        leftBtn.disabled = true
+        setTimeout(() => {
+            leftBtn.disabled = false
+            sliderField.style.transition = ''
+        }, speed)
+
+        if (count == 0) {
+            count = slides.length
+            setTimeout(() => {
+                sliderField.style.transform = `translateX(-${step * count}px)`
+            }, speed)
+        }
+    })
+    
+}
+
+sliders('.inner-slider__wrapper', '.inner-slider__field', '.inner-slider__slide', '.inner-slider__left', '.inner-slider__rigth', 500)
+
+

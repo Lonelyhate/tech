@@ -14,7 +14,7 @@ $colorFFF: #fff;
 $mainFonts: 'Poppins', sans-serif;
 $fontMain: 600 12px/18px $mainFonts;
 $fontMiddle: 600 14px $mainFonts;
-@media (max-width: 1200px) {
-    $fontMain: 600 11px/16px $mainFonts;
-}
+//fotns tablet
+$fontMainTablet: 600 11px/16px $mainFonts;
+$fontMiddleTablet:  400 13px $mainFonts;
 
