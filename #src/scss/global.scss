@@ -10,7 +10,7 @@ body {
     font-family: $mainFonts;
     text-rendering: optimizeSpeed;
     line-height: 1;
-    background-color: $colorLight;
+    background-color: $colorFFF;
   }
 
 ul,
@@ -37,8 +37,66 @@ dd {
 }
 
 .container{
-    max-width: 1430px;
+    max-width: 1428px;
     padding: 0 15px;
     width: 100%;
     margin: 0 auto;
+}
+
+.title {
+    color: $colorBlack;
+    font: $fontTitle;
+}
+
+.slider{
+    &__btns{
+
+    }
+    &__btn{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        border: none;
+        background-color: rgba($color: #252931, $alpha: 0.5);
+    }
+    &__left{
+        left: 0;
+        border-radius: 0px 30px 30px 0px;
+        padding: 18px 17px 14px 11px;
+    }
+    &__right{
+        right: 0;
+        border-radius: 30px 0px 0px 30px;
+        padding: 18px 11px 14px 17px;
+    }
+}
+
+@media (max-width: 768px) {
+    .title{
+        font: $fontTitleTable;
+    }
+    .slider{
+        &__btn{
+            svg{
+                height: 9px;
+                width: 7px;
+            }
+        }
+        &__left{
+            padding: 12px 12px 8px 8px;
+        }
+        &__right{
+            padding: 12px 8px 8px 12px;
+        }
+    }
+}
+
+@media (max-width: 550px) {
+    .inner-slider{
+        &__img{
+            max-height: auto;
+            min-height: 85px;
+        }
+    }
 }

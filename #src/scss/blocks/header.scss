@@ -623,10 +623,10 @@
             width: 436px;
             height: 100%;
             background-color: $colorFFF;
-            z-index: 5;
+            z-index: 1000;
             transition: left 0.3s ease;
             padding: 87px 0px 0;
-            overflow: hidden;
+            overflow-x: hidden;
         }
         &__list{
             display: block;

@@ -1,0 +1,43 @@
+.custome {
+    padding: 14px 0 35px;
+}
+.container {
+}
+.custome__container {
+    display: flex;
+    align-items: center;
+}
+.custome__inner {
+    background: url('../img/custome/inner.jpg') center no-repeat;
+    background-size: cover;
+    min-width: 232px;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.custome__name {
+    font-size: 22px;
+    line-height: 28px;
+    font-weight: 700;
+    color: $colorFFF;
+}
+.custome__link {
+    font-size: 13px;
+    line-height: 15px;
+    color: $colorFFF;
+    position: absolute;
+    bottom: 32px;
+}
+.custome__slider {
+    position: relative;
+    z-index: 100;
+
+}
+.custome__wrapper {
+    overflow: hidden;
+}
+.custome__field {
+    display: flex;
+}
