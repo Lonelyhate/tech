@@ -1,0 +1,144 @@
+.footer {
+    background-color: #020203;
+    padding: 47px 0 17px;
+}
+.footer__container {
+}
+.container {
+}
+.footer__top {
+
+}
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 42px;
+}
+.footer-top__text {
+}
+.footer-top__title {
+    font-size: 38px;
+    font-weight: 500;
+    color: $colorFFF;
+    margin-bottom: 10px;
+}
+.footer-top__subtitle {
+    font-size: 16px;
+    font-weight: 300;
+    color: $colorFFF;
+}
+.footer__form {
+    height: 50px;
+    align-self: flex-end;
+}
+.footer__input {
+    width: 391px;
+    height: 100%;
+    background: none;
+    border: 2px solid $colorFFF;
+    border-radius: 4px;
+    padding-left: 10px;
+    color: $colorFFF;
+    font-size: 14px;
+    margin-right: 20px;
+    &::placeholder{
+        font-weight: 300;
+        color: $colorFFF;
+        font-size: 14px;
+    }
+}
+.footer__btn {
+    background-color: $colorBlue;
+    color: $colorFFF;
+    height: 100%;
+    padding: 0 42px;
+    border: none;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.footer__middle {
+}
+.footer-middle {
+}
+.footer-middle__list {
+}
+.footer-list {
+    display: flex;
+    justify-content: space-between;
+}
+.footer-list__item {
+}
+.footer-list__btn {
+    padding: 0;
+    background: none;
+    color: $colorFFF;
+    border: none;
+    font-weight: 700;
+    font-size: 14px;
+    opacity: 0.5;
+    pointer-events: none;
+    margin-bottom: 30px;
+}
+.footer-list__submenu {
+    li{
+        &:not(:last-child) {
+            margin-bottom: 5px;
+        }
+    }
+}
+.footer-list__link {
+    font-size: 13px;
+    line-height: 18px;
+    color: $colorFFF;
+    text-decoration: none;
+}
+.footer__address {
+}
+.footer__address-text {
+    font-size: 13px;
+    color: $colorFFF;
+    max-width: 300px;
+    a{
+        color: $colorLightBlue;
+        text-decoration: none;
+    }
+    &:not(:last-child) {
+        margin-bottom: 5px;
+    }
+}
+.footer__bootom {
+    padding-top: 17px;
+    border-top: 1px solid rgba($color: $colorLight, $alpha: 0.2);
+}
+.footer-bottom {
+    display: flex;
+    align-items: center;
+}
+.footer__item {
+    display: flex;
+    width: 33.3333%;
+    &:nth-child(2){
+        justify-content: center;
+    }
+    
+}
+.footer__social-link {
+    margin-right: 10px;
+}
+.footer__pay {
+    width: 34px;
+    height: 22px;
+    margin-right: 10px;
+    img{
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+}
+.footer__copyrigth {
+    margin-left: auto;
+    font-size: 12px;
+    color: rgba($color: #fff, $alpha: 0.6);
+}

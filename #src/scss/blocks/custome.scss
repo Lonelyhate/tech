@@ -22,6 +22,8 @@
     line-height: 28px;
     font-weight: 700;
     color: $colorFFF;
+    width: 100px;
+    text-align: center;
 }
 .custome__link {
     font-size: 13px;
@@ -40,4 +42,52 @@
 }
 .custome__field {
     display: flex;
+}
+
+.msi-laptops {
+    padding-bottom: 40px;
+}
+.container {
+}
+.msi-laptops__categories {
+    display: flex;
+    margin-bottom: 15px;
+}
+.msi-laptops__category {
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 600;
+    color: #838383;
+    cursor: pointer;
+    height: 25px;
+    transition: color 0.3s linear;
+    &:not(:last-child){
+        margin-right: 25px;
+    }
+    &:hover{
+        color: $colorBlack;
+        &:after{
+            opacity: 1;
+        }
+    }
+    &::after{
+        content: '';
+        display: block;
+        height: 2px;
+        width: 100%;
+        background-color: $colorBlue;
+        opacity: 0;
+        transition: opacity 0.3s linear;
+    }
+}
+.custome__container {
+}
+.msi-laptops__inner {
+    background: url('../img/msi-laptops/inner.jpg') center no-repeat;
+}
+.desctops__inner{
+    background: url('../img/desctops/inner.jpg') center no-repeat;
+}
+.monitor-inner{
+    background: url('../img/monitors/inner.jpg') center no-repeat;
 }
