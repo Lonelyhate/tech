@@ -101,12 +101,14 @@ dd {
 }
 
 .slider__left {
+  opacity: 0.5;
   left: 0;
   border-radius: 0px 30px 30px 0px;
   padding: 18px 17px 14px 11px;
 }
 
 .slider__right {
+  z-index: 100;
   right: 0;
   border-radius: 30px 0px 0px 30px;
   padding: 18px 11px 14px 17px;
@@ -817,12 +819,6 @@ dd {
   display: flex;
 }
 
-.inner-slider__slide {
-  max-width: 100%;
-  -ms-flex-negative: 1;
-      flex-shrink: 1;
-}
-
 .inner-slider__img {
   width: 100%;
   max-height: 328px;
@@ -834,6 +830,11 @@ dd {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  pointer-events: none;
+}
+
+.inner-slider__left {
+  opacity: 0.5;
 }
 
 .slider-flex {
@@ -893,7 +894,7 @@ dd {
 
 .product {
   padding: 7px 24.5px 20px;
-  width: 234px;
+  min-width: 234px;
   position: relative;
 }
 
@@ -1102,6 +1103,14 @@ dd {
   padding: 14px 0 35px;
 }
 
+.custome__content {
+  max-width: 100%;
+}
+
+.custome-slider__right {
+  z-index: 100;
+}
+
 .custome__container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1109,6 +1118,9 @@ dd {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
+  overflow: hidden;
+  width: calc(100% + 15px);
 }
 
 .no-webp .custome__inner {
@@ -1147,33 +1159,19 @@ dd {
   bottom: 32px;
 }
 
-.custome__slider {
-  position: relative;
-  z-index: 100;
-}
-
-.custome__wrapper {
-  overflow: hidden;
-}
-
-.custome__field {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
 .msi-laptops {
   padding-bottom: 40px;
 }
 
-.msi-laptops__categories {
+.tab__categories {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin-bottom: 15px;
 }
 
-.msi-laptops__category {
+.tab__category {
+  position: relative;
   font-size: 16px;
   line-height: 22px;
   font-weight: 600;
@@ -1185,19 +1183,19 @@ dd {
   transition: color 0.3s linear;
 }
 
-.msi-laptops__category:not(:last-child) {
+.tab__category:not(:last-child) {
   margin-right: 25px;
 }
 
-.msi-laptops__category:hover {
+.tab__category:hover {
   color: #000000;
 }
 
-.msi-laptops__category:hover:after {
+.tab__category:hover:after {
   opacity: 1;
 }
 
-.msi-laptops__category::after {
+.tab__category::after {
   content: "";
   display: block;
   height: 2px;
@@ -1218,6 +1216,46 @@ dd {
 .no-webp .monitor-inner {
   background: url("../img/monitors/inner.jpg") center no-repeat; }
 
+.tabs_hide {
+  display: none;
+}
+
+.tabs_show {
+  display: block;
+}
+
+.tabs_active {
+  color: #000000;
+  border-bottom: 3px solid #0156FF;
+}
+
+.opac-anim {
+  -webkit-animation-name: opac-anim;
+          animation-name: opac-anim;
+  -webkit-animation-duration: 0.9s;
+          animation-duration: 0.9s;
+}
+
+@-webkit-keyframes opac-anim {
+  from {
+    opacity: 0.1;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes opac-anim {
+  from {
+    opacity: 0.1;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 .brands {
   padding: 35px 0;
 }
@@ -1226,13 +1264,12 @@ dd {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .brands__item {
-  margin-left: 20px;
+  padding: 35px 23px;
 }
 
 .social {
@@ -2013,6 +2050,7 @@ dd {
   }
 
   .product {
+    min-width: 229px;
     width: 229px;
     padding: 7px 22px 20px;
   }
@@ -2020,6 +2058,7 @@ dd {
 
 @media (max-width: 600px) {
   .product {
+    min-width: 174px;
     width: 174px;
   }
 

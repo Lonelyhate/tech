@@ -3,7 +3,7 @@
 }
 .product {
     padding: 7px 24.5px 20px;
-    width: 234px;
+    min-width: 234px;
     position: relative;
     &__hovers{
         position: absolute;
@@ -129,12 +129,14 @@
 
     }
     .product{
+        min-width: 229px;
         width: 229px;
         padding: 7px 22px 20px;
     }
 }
 @media (max-width: 600px) {
     .product{
+        min-width: 174px;
         width: 174px;
         &__img{
             width: 100px;

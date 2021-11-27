@@ -5,8 +5,9 @@
 }
 .brands__container {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    
 }
 .brands__item {
-    margin-left: 20px;
+    padding: 35px 23px;
 }

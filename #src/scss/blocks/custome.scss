@@ -1,11 +1,21 @@
 .custome {
     padding: 14px 0 35px;
+    &__content{
+        max-width: 100%;
+        
+    }
+    &-slider__right{
+        z-index: 100;
+    }
 }
 .container {
 }
 .custome__container {
     display: flex;
     align-items: center;
+    position: relative;
+    overflow: hidden;
+    width: calc(100% + 15px);
 }
 .custome__inner {
     background: url('../img/custome/inner.jpg') center no-repeat;
@@ -33,15 +43,14 @@
     bottom: 32px;
 }
 .custome__slider {
-    position: relative;
-    z-index: 100;
+    
 
 }
 .custome__wrapper {
-    overflow: hidden;
+    
 }
 .custome__field {
-    display: flex;
+    
 }
 
 .msi-laptops {
@@ -49,11 +58,12 @@
 }
 .container {
 }
-.msi-laptops__categories {
+.tab__categories {
     display: flex;
     margin-bottom: 15px;
 }
-.msi-laptops__category {
+.tab__category {
+    position: relative;
     font-size: 16px;
     line-height: 22px;
     font-weight: 600;
@@ -90,4 +100,32 @@
 }
 .monitor-inner{
     background: url('../img/monitors/inner.jpg') center no-repeat;
+}
+
+.tabs_hide{
+    display: none;
+}
+
+.tabs_show{
+    display: block;
+}
+
+.tabs_active{
+    color: $colorBlack;
+    border-bottom: 3px solid $colorBlue;
+}
+
+.opac-anim{
+    animation-name: opac-anim;
+    animation-duration: 0.9s;
+}
+
+@keyframes opac-anim {
+    from{
+        opacity: 0.1;
+    }
+    to{
+        opacity: 1;
+    }
+    
 }
