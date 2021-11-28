@@ -37,3 +37,51 @@
         color: #272560;
     }
 }
+
+@media (max-width: 768px) {
+    .banner{
+        &__content{
+            height: 60px;
+        }
+        &__text{
+            font-size: 14px;
+            line-height: 17px;
+        }
+        &__img{
+            svg{
+                width: 60px;
+                height: 18px;
+            }
+            &::after{
+                height: 18px;
+                margin-left: 0px;
+            }
+        }
+    }
+}
+@media(max-width: 550px) {
+    .banner{
+        &__content{
+            height: auto;
+            flex-direction: column;
+            padding: 15px 0;
+        }
+        &__text{
+            margin-top: 15px;
+            a{
+                text-align: center;
+                display: block;
+                margin-top: 15px;
+            }
+        }
+        &__img{
+            svg{
+                width: 37px;
+                height: 13px;
+            }
+            &::after{
+                display: none;
+            }
+        }
+    }
+}

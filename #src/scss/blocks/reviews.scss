@@ -11,8 +11,11 @@
     padding: 50px 120px;
 }
 .reviews__wrapper {
+    overflow: hidden;
 }
 .reviews__field {
+    display: flex;
+    transition: transform 0.5s ease-out;
 }
 .reviews__item {
 }
@@ -70,5 +73,59 @@
     &_active{
         background-color: $colorBlue;
         cursor: default;
+    }
+}
+
+@media (max-width: 1000px) {
+    .reviews{
+        &__slider{
+            padding: 40px 60px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .reviews{
+        &__slider{
+            padding: 30px 20px;
+        }
+        &__text{
+            p {
+                font-size: 13px;
+                line-height: 19px;
+            }
+            span{
+                font-size: 60px;
+                margin-top: -5px;
+            }
+        }
+        &__author{
+            font-size: 10px;
+        }
+        &__pagination{
+            width: 9px;
+            height: 9px;
+            &:not(:last-child){
+                margin-right: 7px;
+            }
+        }
+    }
+
+    @media (max-width: 550px) {
+        .reviews{
+            &__slider{
+                padding: 25px 15px;
+            }
+            &__text{
+                p {
+
+                }
+                span{
+                    margin-top: -3px;
+                    font-size: 52px;
+                    margin-right: 10px;
+                }
+            }
+        }
     }
 }

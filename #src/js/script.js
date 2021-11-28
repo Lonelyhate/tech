@@ -286,11 +286,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // sliderSmall('.inner-slider__field', '.inner-slider__slide', '.inner-slider__left', '.inner-slider__right', 500, '.inner-slider__wrapper', true)
     
     
-    function slider(wrapperSelector, fieldSelector, slidesSelector, leftSelector, rightSelector, speed = 300, fullWidth = null) {
+    function slider(wrapperSelector, fieldSelector, slidesSelector, leftSelector, rightSelector, speed = 300, fullWidth = null, paginationSelector = null) {
         const sliderField = document.querySelector(fieldSelector)
         const slides = document.querySelectorAll(slidesSelector)
-        const leftBtn = document.querySelector(leftSelector)
-        const rightBtn = document.querySelector(rightSelector)
         const wrapper = document.querySelector(wrapperSelector)
         let step = 0
         let count = 0
@@ -316,51 +314,91 @@ document.addEventListener('DOMContentLoaded', () => {
 
         sliderField.style.width = `${slideLength * slideWidth}px`
 
-        rightBtn.addEventListener('click', () => {
-            sliderField.style.transition = `transform ${speed}ms ease-out`
-            rightBtn.disabled = true
-            count++
-            if(count >= endSlide) {
+        if(leftSelector) {
+            const leftBtn = document.querySelector(leftSelector)
+            const rightBtn = document.querySelector(rightSelector)
+            rightBtn.addEventListener('click', () => {
+                sliderField.style.transition = `transform ${speed}ms ease-out`
                 rightBtn.disabled = true
-                rightBtn.style.opacity = 0.5
-                setTimeout(() => {
-                    sliderField.style.transition = ``
-                }, speed)
-            } else {
-                setTimeout(() => {
-                    sliderField.style.transition = ``
-                    rightBtn.disabled = false
-                }, speed)
-            }
-            leftBtn.disabled = false
-            leftBtn.style.opacity = 1
-            step = count * slideWidth
-            sliderField.style.transform = `translate(${-step}px)`
-
-        })
-
-        leftBtn.disabled = true
-        leftBtn.addEventListener('click', () => {
-            count--
+                count++
+                if(count >= endSlide) {
+                    rightBtn.disabled = true
+                    rightBtn.style.opacity = 0.5
+                    setTimeout(() => {
+                        sliderField.style.transition = ``
+                    }, speed)
+                } else {
+                    setTimeout(() => {
+                        sliderField.style.transition = ``
+                        rightBtn.disabled = false
+                    }, speed)
+                }
+                leftBtn.disabled = false
+                leftBtn.style.opacity = 1
+                step = count * slideWidth
+                sliderField.style.transform = `translate(${-step}px)`
+    
+            })
+    
             leftBtn.disabled = true
-            sliderField.style.transition = `transform ${speed}ms ease-out`
-            if(count == 0) {
+            leftBtn.addEventListener('click', () => {
+                count--
                 leftBtn.disabled = true
-                leftBtn.style.opacity = 0.5
-            } else {
+                sliderField.style.transition = `transform ${speed}ms ease-out`
+                if(count == 0) {
+                    leftBtn.disabled = true
+                    leftBtn.style.opacity = 0.5
+                } else {
+                    setTimeout(() => {
+                        sliderField.style.transition = ``
+                        leftBtn.disabled = false
+                    }, speed)
+                }
+                rightBtn.disabled = false
+                rightBtn.style.opacity = 1
+                step = count * slideWidth
+                sliderField.style.transform = `translate(${-step}px)`
                 setTimeout(() => {
                     sliderField.style.transition = ``
-                    leftBtn.disabled = false
                 }, speed)
+            })
+        }
+
+        if(paginationSelector) {
+            const paginationParent = document.querySelector(paginationSelector)
+
+            for (let i = 0; i < slides.length; i++) {
+                const paginat = document.createElement('li')
+                paginat.classList.add('reviews__pagination')
+                paginat.setAttribute('data-index', i)
+
+                // paginat.addEventListener('click', () => {
+                //     let stepSlide = i
+                    
+
+                //     paginat.classList.add('reviews__pagination_active')
+                //     sliderField.style.transform = `translateX(-${stepSlide * slideWidth}px)`
+                // })
+
+                paginationParent.append(paginat)
             }
-            rightBtn.disabled = false
-            rightBtn.style.opacity = 1
-            step = count * slideWidth
-            sliderField.style.transform = `translate(${-step}px)`
-            setTimeout(() => {
-                sliderField.style.transition = ``
-            }, speed)
-        })
+
+            paginationParent.children[0].classList.add('reviews__pagination_active')
+
+            paginationParent.addEventListener('click', e => {
+                if(e.target.getAttribute('data-index')) {
+                    count = e.target.getAttribute('data-index')
+
+                    document.querySelectorAll('.reviews__pagination').forEach(item => {
+                        item.classList.remove('reviews__pagination_active')
+                    })
+
+                    e.target.classList.add('reviews__pagination_active')
+
+                    sliderField.style.transform = `translateX(-${count * slideWidth}px)`
+                }
+            })
+        }
     }
 
     slider('.inner-slider__wrapper', '.inner-slider__field', '.inner-slider__slide', '.inner-slider__left', '.inner-slider__right', 500, true)
@@ -369,6 +407,7 @@ document.addEventListener('DOMContentLoaded', () => {
     slider('.msi-laptops__wrapper', '.msi-laptops__field', '.msi-laptops__item', '.msi-laptops__left', '.msi-laptops__right', 500)
     slider('.laptops__wrapper', '.laptops__field', '.laptops__item', '.desctops-slider__left', '.desctops-slider__right', 500)
     slider('.monitors__wrapper', '.monitors__field', '.monitors__item', '.monitors__left', '.monitors__right', 500)
+    slider('.reviews__wrapper', '.reviews__field', '.reviews__item', null, null, 500, true, '.reviews__paginations')
 
 
     //табы с помощью класса
@@ -421,5 +460,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     new Tabs('.msi-category', '.msi-categories', '.msi-laptops__slider')
+    new Tabs('.desctops__category', '.desctops__categories', '.laptops__slider')
     
 })

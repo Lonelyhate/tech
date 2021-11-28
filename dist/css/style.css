@@ -1124,7 +1124,7 @@ dd {
 }
 
 .no-webp .custome__inner {
-  background: url("../img/custome/inner.jpg") center no-repeat; }
+  background: url("../img/custome/inner.jpg") center; }
 
 .custome__inner {
   background-size: cover;
@@ -1210,6 +1210,11 @@ dd {
 .no-webp .msi-laptops__inner {
   background: url("../img/msi-laptops/inner.jpg") center no-repeat; }
 
+.msi-laptops__inner {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .no-webp .desctops__inner {
   background: url("../img/desctops/inner.jpg") center no-repeat; }
 
@@ -1272,6 +1277,12 @@ dd {
   padding: 35px 23px;
 }
 
+.brands__item img {
+  display: block;
+  max-width: 152px;
+  height: 100%;
+}
+
 .social {
   padding-bottom: 30px;
 }
@@ -1329,6 +1340,21 @@ dd {
   background-color: #F5F7FF;
   margin: 0 auto;
   padding: 50px 120px;
+}
+
+.reviews__wrapper {
+  overflow: hidden;
+}
+
+.reviews__field {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: -webkit-transform 0.5s ease-out;
+  transition: -webkit-transform 0.5s ease-out;
+  -o-transition: transform 0.5s ease-out;
+  transition: transform 0.5s ease-out;
+  transition: transform 0.5s ease-out, -webkit-transform 0.5s ease-out;
 }
 
 .reviews__text {
@@ -1979,6 +2005,12 @@ dd {
   }
 }
 
+@media (max-width: 1000px) {
+  .reviews__slider {
+    padding: 40px 60px;
+  }
+}
+
 @media (max-width: 961px) {
   .header-top__text {
     display: none;
@@ -2054,6 +2086,115 @@ dd {
     width: 229px;
     padding: 7px 22px 20px;
   }
+
+  .banner__content {
+    height: 60px;
+  }
+
+  .banner__text {
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  .banner__img svg {
+    width: 60px;
+    height: 18px;
+  }
+
+  .banner__img::after {
+    height: 18px;
+    margin-left: 0px;
+  }
+
+  .tab__category {
+    font-size: 14px;
+  }
+
+  .brands {
+    padding: 0;
+  }
+
+  .brands__container {
+    padding-left: 30px;
+  }
+
+  .brands__item {
+    padding: 0;
+    width: 33.333%;
+  }
+
+  .social__content {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+
+  .reviews__slider {
+    padding: 30px 20px;
+  }
+
+  .reviews__text p {
+    font-size: 13px;
+    line-height: 19px;
+  }
+
+  .reviews__text span {
+    font-size: 60px;
+    margin-top: -5px;
+  }
+
+  .reviews__author {
+    font-size: 10px;
+  }
+
+  .reviews__pagination {
+    width: 9px;
+    height: 9px;
+  }
+
+  .reviews__pagination:not(:last-child) {
+    margin-right: 7px;
+  }
+
+  .advantage__item {
+    width: 225px;
+  }
+
+  .advantage__item:not(:last-child) {
+    margin-right: 10px;
+  }
+
+  .advantage__img {
+    margin-bottom: 7px;
+  }
+
+  .advantage__img svg {
+    width: 45px;
+    height: 45px;
+  }
+
+  .advantage__title {
+    font-size: 14px;
+    line-height: 18px;
+    margin-bottom: 5px;
+  }
+
+  .advantage__text {
+    font-size: 12px;
+    line-height: 17px;
+  }
+}
+
+@media (max-width: 768px) and (max-width: 550px) {
+  .reviews__slider {
+    padding: 25px 15px;
+  }
+
+  .reviews__text span {
+    margin-top: -3px;
+    font-size: 52px;
+    margin-right: 10px;
+  }
 }
 
 @media (max-width: 600px) {
@@ -2106,6 +2247,78 @@ dd {
   .rating__show svg:not(:last-child) {
     margin-right: 0;
   }
+
+  .custome {
+    padding-bottom: 15px;
+  }
+
+  .custome__container {
+    display: block;
+  }
+
+  .custome__inner {
+    height: auto;
+    padding: 20px 0 39px;
+    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    background-size: cover;
+    margin-bottom: 15px;
+  }
+
+  .custome__name {
+    font-size: 18px;
+    line-height: 23px;
+    width: auto;
+  }
+
+  .custome__link {
+    bottom: 15px;
+  }
+
+  .custome-slider__right {
+    top: 67%;
+  }
+
+  .msi-laptops {
+    padding-bottom: 15px;
+  }
+
+  .msi-laptops__right {
+    top: 67%;
+  }
+
+  .monitors__right {
+    top: 67%;
+  }
+
+  .tab__categories {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    margin-bottom: 0;
+  }
+
+  .tab__category {
+    margin-bottom: 10px;
+    margin-right: 10px;
+  }
+
+  .desctops-slider__right {
+    top: 67%;
+  }
+
+  .brands__container {
+    padding-left: 15px;
+  }
+
+  .brands__item {
+    padding: 0;
+    width: 50%;
+  }
+
+  .brands__item img {
+    margin: 0 auto;
+  }
 }
 
 @media (max-width: 550px) {
@@ -2117,6 +2330,52 @@ dd {
   .inner-slider__img {
     max-height: auto;
     min-height: 85px;
+  }
+
+  .banner__content {
+    height: auto;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 15px 0;
+  }
+
+  .banner__text {
+    margin-top: 15px;
+  }
+
+  .banner__text a {
+    text-align: center;
+    display: block;
+    margin-top: 15px;
+  }
+
+  .banner__img svg {
+    width: 37px;
+    height: 13px;
+  }
+
+  .banner__img::after {
+    display: none;
+  }
+
+  .advantage {
+    padding: 20px 0;
+  }
+
+  .advantage__content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+
+  .advantage__item:not(:last-child) {
+    margin-bottom: 20px;
   }
 }
 
@@ -2165,7 +2424,7 @@ dd {
 
 .webp .profile__btn { background: url(../img/icons/avatar.webp) center no-repeat; }
 
-.webp .custome__inner { background: url(../img/custome/inner.webp) center no-repeat; }
+.webp .custome__inner { background: url(../img/custome/inner.webp) center; }
 
 .webp .msi-laptops__inner { background: url(../img/msi-laptops/inner.webp) center no-repeat; }
 

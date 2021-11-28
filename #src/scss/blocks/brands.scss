@@ -10,4 +10,37 @@
 }
 .brands__item {
     padding: 35px 23px;
+    img{
+        display: block;
+        max-width: 152px;
+        height: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .brands{
+        padding: 0;
+        &__container{
+            padding-left: 30px;
+        }
+        &__item{
+            padding: 0;
+            width: 33.333%;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .brands{
+        &__container{
+            padding-left: 15px;
+        }
+        &__item{
+            padding: 0;
+            width: 50%;
+            img{
+                margin: 0 auto;
+            }
+        }
+    }
 }

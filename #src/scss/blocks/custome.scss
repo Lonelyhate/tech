@@ -18,7 +18,7 @@
     width: calc(100% + 15px);
 }
 .custome__inner {
-    background: url('../img/custome/inner.jpg') center no-repeat;
+    background: url('../img/custome/inner.jpg') center;
     background-size: cover;
     min-width: 232px;
     height: 350px;
@@ -93,7 +93,9 @@
 .custome__container {
 }
 .msi-laptops__inner {
-    background: url('../img/msi-laptops/inner.jpg') center no-repeat;
+    background: url('../img/msi-laptops/inner.jpg') center no-repeat ;
+    object-fit: cover;
+
 }
 .desctops__inner{
     background: url('../img/desctops/inner.jpg') center no-repeat;
@@ -128,4 +130,57 @@
         opacity: 1;
     }
     
+}
+@media (max-width: 768px) {
+    .tab__category{
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 600px) {
+    .custome{
+        padding-bottom: 15px;
+        &__container{
+            display: block;
+        }
+        &__inner{
+            height: auto;
+            padding: 20px 0 39px;
+            width: 100%;
+            object-fit: cover;
+            background-size: cover;
+            margin-bottom: 15px;
+        }
+        &__name{
+            font-size: 18px;
+            line-height: 23px;
+            width: auto;
+        }
+        &__link{
+            bottom: 15px;
+        }
+        &-slider__right{
+            top: 67%;
+        }
+    }
+    .msi-laptops{
+        padding-bottom: 15px;
+    }
+    .msi-laptops__right{
+        top: 67%;
+    }
+    .monitors__right{
+        top: 67%;
+    }
+    .tab__categories{
+        flex-wrap: wrap;
+        margin-bottom: 0;
+    }
+    .tab__category{
+        margin-bottom: 10px;
+        margin-right: 10px;
+    }
+    .desctops-slider__right{
+        top: 67%;
+    }
 }
