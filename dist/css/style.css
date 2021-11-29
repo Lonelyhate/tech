@@ -2005,6 +2005,153 @@ dd {
   }
 }
 
+@media (max-width: 1120px) {
+  .footer__input {
+    width: 300px;
+  }
+}
+
+@media (max-width: 1050px) {
+  .footer__input {
+    width: 250px;
+  }
+
+  .footer__address {
+    max-height: 0;
+    padding-left: 12px;
+    overflow: hidden;
+    -webkit-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+  }
+
+  .footer-top__title {
+    font-size: 18px;
+  }
+
+  .footer-top__subtitle {
+    font-size: 12px;
+  }
+
+  .footer-bottom {
+    border-top: none;
+  }
+
+  .footer-list {
+    display: block;
+  }
+
+  .footer-list__item {
+    border-bottom: 1px solid #fff;
+    margin-bottom: 25px;
+  }
+
+  .footer-list__item_active {
+    padding-bottom: 15px;
+  }
+
+  .footer-list__btn {
+    opacity: 1;
+    padding-bottom: 15px;
+    margin-bottom: 0;
+    cursor: pointer;
+    pointer-events: all;
+    width: 100%;
+    text-align: left;
+  }
+
+  .footer-list__submenu {
+    max-height: 0;
+    padding-left: 12px;
+    overflow: hidden;
+    -webkit-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+  }
+}
+
+@media (max-width: 1050px) and (max-width: 768px) {
+  .footer__input {
+    width: 186px;
+    height: 38px;
+    margin-right: 8px;
+    font-size: 11px;
+  }
+
+  .footer__input::-webkit-input-placeholder {
+    font-size: 11px;
+  }
+
+  .footer__input::-moz-placeholder {
+    font-size: 11px;
+  }
+
+  .footer__input:-ms-input-placeholder {
+    font-size: 11px;
+  }
+
+  .footer__input::-ms-input-placeholder {
+    font-size: 11px;
+  }
+
+  .footer__input::placeholder {
+    font-size: 11px;
+  }
+
+  .footer__btn {
+    height: 38px;
+    font-size: 13px;
+    padding: 0 34px;
+  }
+
+  .footer-list__btn {
+    font-size: 11px;
+  }
+
+  .footer-list__link {
+    font-size: 12px;
+  }
+
+  .footer__address-text {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 1050px) and (max-width: 624px) {
+  .footer {
+    padding-top: 35px;
+  }
+
+  .footer__form {
+    -ms-flex-item-align: auto;
+        align-self: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  .footer-top {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
+  .footer-top__text {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .footer__input {
+    display: block;
+    width: 100%;
+  }
+
+  .footer__btn {
+    margin-left: 13px;
+  }
+}
+
 @media (max-width: 1000px) {
   .reviews__slider {
     padding: 40px 60px;

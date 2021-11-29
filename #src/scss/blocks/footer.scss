@@ -143,3 +143,129 @@
     font-size: 12px;
     color: rgba($color: #fff, $alpha: 0.6);
 }
+
+@media (max-width: 1120px) {
+    .footer{
+        &__input{
+            width: 300px;
+        }
+    }
+}
+
+@media (max-width: 1050px) {
+    .footer{
+        &__input{
+            width: 250px;
+        }
+        &__address{
+            max-height: 0;
+            padding-left: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease-out;
+        }
+        &-top{
+            &__title{
+                font-size: 18px;
+            }
+            &__subtitle{
+                font-size: 12px;
+            }
+        }
+        &-bottom{
+            border-top: none;
+        }
+        &-list{
+            display: block;
+            &__item{
+                border-bottom: 1px solid #fff;
+                margin-bottom: 25px;
+                &_active{
+                    padding-bottom: 15px;
+                }
+            }
+            &__btn{
+                opacity: 1;
+                padding-bottom: 15px;
+                margin-bottom: 0;
+                cursor: pointer;
+                pointer-events: all;
+                width: 100%;
+                text-align: left;
+            }
+            &__submenu{
+                max-height: 0;
+                padding-left: 12px;
+                overflow: hidden;
+                transition: all 0.3s ease-out;
+                &_active{
+                    
+                }
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        .footer{
+            &__input{
+                width: 186px;
+                height: 38px;
+                margin-right: 8px;
+                font-size: 11px;
+                &::placeholder{
+                    font-size: 11px;
+                }
+            }
+            &__btn{
+                height: 38px;
+                font-size: 13px;
+                padding: 0 34px;
+            }
+            &-list{
+                &__btn{
+                    font-size: 11px;
+                }
+                &__link{
+                    font-size: 12px;
+                }
+            }
+            &__address-text{
+                font-size: 12px;
+            }
+        }
+    }
+
+    @media (max-width: 624px) {
+        .footer{
+            padding-top: 35px;
+            &__form{
+                align-self: auto;
+                display: flex;
+            }
+            &-top{
+                flex-direction: column;
+                &__text{
+                    text-align: center;
+                    margin-bottom: 20px;
+                }
+            }
+            &__input{
+                display: block;
+                width: 100%;
+            }
+            &__btn{
+                margin-left: 13px;
+            }
+            &-list{
+                &__btn{
+  
+                }
+                &__link{
+
+                }
+            }
+            &__address-text{
+
+            }
+        }
+    }
+}

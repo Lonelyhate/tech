@@ -372,14 +372,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 paginat.classList.add('reviews__pagination')
                 paginat.setAttribute('data-index', i)
 
-                // paginat.addEventListener('click', () => {
-                //     let stepSlide = i
-                    
-
-                //     paginat.classList.add('reviews__pagination_active')
-                //     sliderField.style.transform = `translateX(-${stepSlide * slideWidth}px)`
-                // })
-
                 paginationParent.append(paginat)
             }
 
@@ -461,5 +453,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     new Tabs('.msi-category', '.msi-categories', '.msi-laptops__slider')
     new Tabs('.desctops__category', '.desctops__categories', '.laptops__slider')
+
+    //footer
+    const footerBtns = document.querySelectorAll('.footer-list__btn')
+
+    footerBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const content = e.target.nextElementSibling
+            content.classList.toggle('footer-list__submenu_active')
+            content.parentElement.classList.toggle('footer-list__item_active')
+            if(content.classList.contains('footer-list__submenu_active')) {
+                content.style.maxHeight = content.scrollHeight + 'px'
+            } else {
+                content.style.maxHeight = 0
+            }
+        })
+    })
     
 })
