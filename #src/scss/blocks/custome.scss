@@ -1,7 +1,7 @@
 .custome {
     padding: 14px 0 35px;
     &__content{
-        max-width: 100%;
+        max-width: calc(100% - 232px);
         
     }
     &-slider__right{
@@ -14,8 +14,9 @@
     display: flex;
     align-items: center;
     position: relative;
-    overflow: hidden;
-    width: calc(100% + 15px);
+    flex: 0 1 auto;
+    // overflow: hidden;
+    max-width: calc(100% + 15px);
 }
 .custome__inner {
     background: url('../img/custome/inner.jpg') center;
@@ -131,6 +132,13 @@
     }
     
 }
+
+@media (max-width: 1398px) {
+    .custome__content{
+        max-width: calc(100% - 217px);
+    }
+}
+
 @media (max-width: 768px) {
     .tab__category{
         font-size: 14px;
@@ -140,6 +148,9 @@
 @media (max-width: 600px) {
     .custome{
         padding-bottom: 15px;
+        &__content{
+            max-width: 100%;
+        }
         &__container{
             display: block;
         }

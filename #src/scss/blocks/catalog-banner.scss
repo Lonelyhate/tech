@@ -1,0 +1,29 @@
+.catalog-banner {
+}
+
+.catalog-banner__img {
+    width: 100%;
+    img{
+        display: block;
+        min-height: 60px;
+        width: 100%;
+    }
+}
+
+.catalog-banner__path {
+}
+.path {
+    padding: 20px 0;
+}
+.path__link {
+    font-size: 12px;
+    line-height: 18px;
+    color: $colorBlack;
+    text-decoration: none;
+    span{
+        color: $colorBlue;
+    }
+}
+.path__link_last {
+    color: $colorGrey;
+}

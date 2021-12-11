@@ -134,295 +134,30 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     })
     
-    
-    //sliders
-    
-    // function sliderMain(wrapperSelector, fieldSelector, slidesSelector, leftSelector, rightSelector, nameClasss,speed) {
-    //     const sliderWrapper = document.querySelector(wrapperSelector)
-    //     const sliderField = document.querySelector(fieldSelector)
-    //     const slides = document.querySelectorAll(slidesSelector)
-    //     const leftBtn = document.querySelector(leftSelector)
-    //     const rightBtn = document.querySelector(rightSelector)
-    //     let step = sliderWrapper.clientWidth
-    //     let count = 1
-    
-    //     sliderField.style.width = `${step * (slides.length + 2)}px`
-    //     const elemEnd = document.createElement('div')
-    //     elemEnd.classList.add(nameClasss)
-    //     elemEnd.innerHTML = slides[0].innerHTML
-    //     sliderField.append(elemEnd)
-    //     const elemFirst = document.createElement('div')
-    //     elemFirst.classList.add(nameClasss)
-    //     elemFirst.innerHTML = slides[slides.length - 1].innerHTML
-    //     sliderField.insertAdjacentElement('afterbegin', elemFirst)
-    
-    //     sliderField.style.transform = `translateX(-${step * count}px)`
-    
-    //     window.addEventListener('resize', () => {
-    //         step = sliderWrapper.clientWidth
-    //         sliderField.style.width = `${step * (slides.length + 2)}px`
-    //         sliderField.style.transform = `translateX(-${step * count}px)`
-    //     })
-    
-    //     rightBtn.addEventListener('click', () => {
-    //         count++
-    
-    //         sliderField.style.transition = 'all 0.3s ease-out'
-    //         sliderField.style.transform = `translateX(-${step * count}px)`
-    //         rightBtn.disabled = true
-    //         setTimeout(() => {
-    //             rightBtn.disabled = false
-    //             sliderField.style.transition = ''
-    //         }, speed)
-    
-    //         if (count == (slides.length + 2) - 1) {
-    //             count = 1
-    //             setTimeout(() => {
-    //                 sliderField.style.transform = `translateX(-${step * count}px)`
-    //             }, speed)
-    //         }
-    //     })
-        
-    //     leftBtn.addEventListener('click', () => {
-    //         count--
-    //         sliderField.style.transition = 'all 0.3s ease-out'
-    //         sliderField.style.transform = `translateX(-${step * count}px)`
-    
-    //         leftBtn.disabled = true
-    //         setTimeout(() => {
-    //             leftBtn.disabled = false
-    //             sliderField.style.transition = ''
-    //         }, speed)
-    
-    //         if (count == 0) {
-    //             count = slides.length
-    //             setTimeout(() => {
-    //                 sliderField.style.transform = `translateX(-${step * count}px)`
-    //             }, speed)
-    //         }
-    //     })
-        
-    // }
-    
-    // function sliderSmall(fieldSelector, slidesSelector, leftSelector, rightSelector, speed, wrapperSelector = '', adaptiv = false) {
-    //     const sliderField = document.querySelector(fieldSelector)
-    //     const slides = document.querySelectorAll(slidesSelector)
-    //     const leftBtn = document.querySelector(leftSelector)
-    //     const rightBtn = document.querySelector(rightSelector)
-    //     const wrapper = document.querySelector(wrapperSelector)
-    //     let step = 0
-    //     let widthSlides = slides[0].clientWidth * slides.length
 
-    //     if(adaptiv) {
-    //         step = wrapper.clientWidth
-    //         widthSlides = step * slides.length
-    //         window.addEventListener('resize', () => {
-    //             step = wrapper.clientWidth
-
-    //             widthSlides = step * slides.length
-
-    //             sliderField.style.width = `${step * (slides.length + 2)}px`
-    //             sliderField.style.transform = `translateX(${-step}px)`
-    //         })
-            
-    //     } else {
-    //         step = slides[0].clientWidth
-    //         window.addEventListener('resize', () => {
-    //             step = slides[0].clientWidth
-    //             sliderField.style.transform = `translateX(${-step}px)`
-    //         })
-    //     }
-        
-    //     if(widthSlides >= (wrapper.clientWidth)) {
-            
-    //         const elemLast = slides[0].cloneNode(true)
-    //         sliderField.append(elemLast)
-        
-    //         const elemFirst = slides[slides.length - 1].cloneNode(true)
-    //         sliderField.insertAdjacentElement('afterbegin', elemFirst)
-        
-    //         sliderField.style.width = `${step * (slides.length + 2)}px`
-    //         sliderField.style.transform = `translateX(${-step}px)`
-        
-    //         rightBtn.addEventListener('click', () => {
-        
-    //             sliderField.style.transition = `all ${speed}ms ease-out`
-    //             sliderField.style.transform = `translateX(-${step * 2}px)`
-    //             rightBtn.disabled = true
-    //             const slides2 = document.querySelectorAll(slidesSelector)
-    //             setTimeout(() => {
-    //                 const elemLast = slides2[2].cloneNode(true)
-    //                 sliderField.append(elemLast)
-    //                 slides2[0].remove()
-    //                 sliderField.style.transition = ''
-    //                 rightBtn.disabled = false
-    //                 sliderField.style.transform = `translateX(-${step}px)`
-    //             }, speed)
-    //         })
-    //         leftBtn.addEventListener('click', () => {
-    //             sliderField.style.transition = `all ${speed}ms ease-out`
-    //             sliderField.style.transform = `translateX(0px)`
-    //             leftBtn.disabled = true
-    //             const slides2 = document.querySelectorAll(slidesSelector)
-    //             setTimeout(() => {
-        
-    //                 const elemFirst = slides2[slides2.length - 3].cloneNode(true)
-    //                 sliderField.insertAdjacentElement('afterbegin', elemFirst)
-    //                 slides2[slides2.length - 1].remove()
-    //                 leftBtn.disabled = false
-    //                 sliderField.style.transition = ''
-    //                 sliderField.style.transform = `translateX(-${step}px)`
-        
-    //             }, speed)
-    //         })
-    //     } else {
-    //         leftBtn.style.display = 'none'
-    //         rightBtn.style.display = 'none'
-    //     }
-    
-        
-    // }
-    
-    // // sliderMain('.inner-slider__wrapper', '.inner-slider__field', '.inner-slider__slide', '.inner-slider__left', '.inner-slider__rigth', 'inner-slider__slide',500)
-    
-    // sliderSmall('.products-slider__field', '.product-slider__item', '.products-slider__left', '.products-slider__right', 500, '.products-slider__wrapper')
-    // sliderSmall('.inner-slider__field', '.inner-slider__slide', '.inner-slider__left', '.inner-slider__right', 500, '.inner-slider__wrapper', true)
-    
-    
-    // function slider(wrapperSelector, fieldSelector, slidesSelector, leftSelector, rightSelector, speed = 300, fullWidth = null, paginationSelector = null) {
-    //     const sliderField = document.querySelector(fieldSelector)
-    //     const slides = document.querySelectorAll(slidesSelector)
-    //     const wrapper = document.querySelector(wrapperSelector)
-    //     let step = 0
-    //     let count = 0
-    //     let endSlide = 0
-    //     let slideLength = slides.length
-    //     let slideWidth
-        
-
-    //     if (fullWidth) {
-    //         slideWidth = wrapper.clientWidth
-    //         endSlide = slides.length - 1
-    //         window.addEventListener('resize', () => {
-    //             slideWidth = wrapper.clientWidth
-    //             sliderField.style.width = `${slideLength * slideWidth}px`
-    //             sliderField.style.transform = `translate(${-slideWidth * count}px)`
-    //         })
-    //     } else {
-    //         slideWidth = slides[0].clientWidth
-    //         endSlide = Math.floor(wrapper.clientWidth / slideWidth)
-    //         endSlide = slideLength - endSlide
-            
-    //     }
-
-    //     sliderField.style.width = `${slideLength * slideWidth}px`
-
-    //     if(leftSelector) {
-    //         const leftBtn = document.querySelector(leftSelector)
-    //         const rightBtn = document.querySelector(rightSelector)
-    //         rightBtn.addEventListener('click', () => {
-    //             sliderField.style.transition = `transform ${speed}ms ease-out`
-    //             rightBtn.disabled = true
-    //             count++
-    //             if(count >= endSlide) {
-    //                 rightBtn.disabled = true
-    //                 rightBtn.style.opacity = 0.5
-    //                 setTimeout(() => {
-    //                     sliderField.style.transition = ``
-    //                 }, speed)
-    //             } else {
-    //                 setTimeout(() => {
-    //                     sliderField.style.transition = ``
-    //                     rightBtn.disabled = false
-    //                 }, speed)
-    //             }
-    //             leftBtn.disabled = false
-    //             leftBtn.style.opacity = 1
-    //             step = count * slideWidth
-    //             sliderField.style.transform = `translate(${-step}px)`
-    
-    //         })
-    
-    //         leftBtn.disabled = true
-    //         leftBtn.addEventListener('click', () => {
-    //             count--
-    //             leftBtn.disabled = true
-    //             sliderField.style.transition = `transform ${speed}ms ease-out`
-    //             if(count == 0) {
-    //                 leftBtn.disabled = true
-    //                 leftBtn.style.opacity = 0.5
-    //             } else {
-    //                 setTimeout(() => {
-    //                     sliderField.style.transition = ``
-    //                     leftBtn.disabled = false
-    //                 }, speed)
-    //             }
-    //             rightBtn.disabled = false
-    //             rightBtn.style.opacity = 1
-    //             step = count * slideWidth
-    //             sliderField.style.transform = `translate(${-step}px)`
-    //             setTimeout(() => {
-    //                 sliderField.style.transition = ``
-    //             }, speed)
-    //         })
-    //     }
-
-    //     if(paginationSelector) {
-    //         const paginationParent = document.querySelector(paginationSelector)
-
-    //         for (let i = 0; i < slides.length; i++) {
-    //             const paginat = document.createElement('li')
-    //             paginat.classList.add('reviews__pagination')
-    //             paginat.setAttribute('data-index', i)
-
-    //             paginationParent.append(paginat)
-    //         }
-
-    //         paginationParent.children[0].classList.add('reviews__pagination_active')
-
-    //         paginationParent.addEventListener('click', e => {
-    //             if(e.target.getAttribute('data-index')) {
-    //                 count = e.target.getAttribute('data-index')
-
-    //                 document.querySelectorAll('.reviews__pagination').forEach(item => {
-    //                     item.classList.remove('reviews__pagination_active')
-    //                 })
-
-    //                 e.target.classList.add('reviews__pagination_active')
-
-    //                 sliderField.style.transform = `translateX(-${count * slideWidth}px)`
-    //             }
-    //         })
-    //     }
-    // }
-
-    // // slider('.inner-slider__wrapper', '.inner-slider__field', '.inner-slider__slide', '.inner-slider__left', '.inner-slider__right', 500, true)
-    // slider('.products-slider__wrapper', '.products-slider__field', '.product-slider__item', '.products-slider__left', '.products-slider__right', 500)
-    // slider('.custome__wrapper', '.custome__field', '.custome__item', '.custome-slider__left', '.custome-slider__right', 300)
-    // slider('.msi-laptops__wrapper', '.msi-laptops__field', '.msi-laptops__item', '.msi-laptops__left', '.msi-laptops__right', 500)
-    // slider('.laptops__wrapper', '.laptops__field', '.laptops__item', '.desctops-slider__left', '.desctops-slider__right', 500)
-    // slider('.monitors__wrapper', '.monitors__field', '.monitors__item', '.monitors__left', '.monitors__right', 500)
-    // slider('.reviews__wrapper', '.reviews__field', '.reviews__item', null, null, 500, true, '.reviews__paginations')
 
     class Slider {
         constructor({
             container = null,
             next = null,
             prev = null,
-            speed = 300
+            speed = 300,
+            pagination = null,
+            infinity = null
         }) 
         {
             this.container = document.querySelector(container)
             this.next = next
             this.prev = prev
             this.speed = speed
+            this.pagination = pagination
+            this.infinity = infinity
             this.sliderCount = this.container.childElementCount
             this.index = 0
 
             this.manageHTML = this.manageHTML.bind(this)
 
             this.manageHTML()
-
         }
 
         manageHTML() {
@@ -449,6 +184,34 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.sliderBtnContainer.append(this.btnNext)
             }
 
+            if(this.pagination) {
+                this.paginationParentClass = this.pagination[0]
+                this.paginationItemClass = this.pagination[1]
+                this.paginationItemActiveClass = this.pagination[2]
+                
+                this.paginationParent = document.createElement('ul')
+                this.paginationParent.classList.add('paginations')
+                this.paginationParent.classList.add(this.paginationParentClass)
+                this.container.append(this.paginationParent)
+
+                for(let i = 0; i < this.sliderCount; i++) {
+                    this.paginationItem = document.createElement('li')
+                    this.paginationItem.classList.add('pagination')
+                    this.paginationItem.classList.add(this.paginationItemClass)
+                    this.paginationItem.setAttribute('data-pagination', i)
+                    this.paginationParent.append(this.paginationItem)
+                }
+                this.paginationParent.children[0].classList.add(this.paginationItemActiveClass)
+            }
+
+            if(this.infinity) {
+                this.firstSlide = this.sliderChild[0].cloneNode(true)
+                this.lastSlide = this.sliderChild[this.sliderCount - 1].cloneNode(true)
+                
+                this.sliderField.insertAdjacentElement('beforeend', this.firstSlide)
+                this.sliderField.insertAdjacentElement('afterbegin', this.lastSlide)
+            }
+
         }
 
     }
@@ -456,6 +219,10 @@ document.addEventListener('DOMContentLoaded', () => {
     class InnerSlider extends Slider{
         constructor(container, next, prev, speed) {
             super(container, next, prev, speed)
+
+            if(this.infinity) {
+                this.index = 1
+            } 
 
             this.setParametres = this.setParametres.bind(this)
             this.binds = this.binds.bind(this)
@@ -468,8 +235,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         setParametres() {
             this.step = this.sliderWrapper.clientWidth
-            this.sliderField.style.width = this.step * this.sliderCount + 'px'
-            this.sliderField.style.transform = `translateX(-${this.step * this.index}px)` 
+            if(this.infinity) {
+                this.sliderField.style.width = this.step * (this.sliderCount + 2) + 'px'
+                this.sliderField.style.transform = `translateX(-${this.step * this.index}px)` 
+            } else {
+                this.sliderField.style.width = this.step * this.sliderCount + 'px'
+                this.sliderField.style.transform = `translateX(-${this.step * this.index}px)` 
+            } 
         }
 
         nextStep(btn) {
@@ -479,49 +251,120 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         binds() {
-            this.btnNext.addEventListener('click', () => {
-                this.index++
+                if(this.infinity) {
+                    this.btnNext.addEventListener('click', () => {
+                        this.index++
 
-                if(this.index == this.sliderCount - 1) {
-                    this.nextStep(this.btnNext)
-                    
-                    setTimeout(() => {
-                        this.sliderField.style.transition = ''
-                    }, this.speed)
+                        if(this.index == this.sliderCount + 1) {
+                            this.nextStep(this.btnNext)
+
+                            setTimeout(() => {
+                                this.index = 1
+                                this.sliderField.style.transition = ''
+                                this.btnNext.disabled = false
+                                this.sliderField.style.transform = `translateX(-${this.step * this.index}px)` 
+                            }, this.speed)
+                        } else {
+                            this.nextStep(this.btnNext)
+
+                            setTimeout(() => {
+                                this.btnNext.disabled = false
+                                this.sliderField.style.transition = ''
+                            }, this.speed)
+                        }
+                    })
+
+                    this.btnPrev.addEventListener('click', () => {
+                        this.index--
+
+                        if(this.index <= 0) {
+                            this.nextStep(this.btnPrev)
+
+                            setTimeout(() => {
+                                this.index = this.sliderCount 
+                                this.sliderField.style.transition = ''
+                                this.btnPrev.disabled = false
+                                this.sliderField.style.transform = `translateX(-${this.step * this.index}px)` 
+                            }, this.speed)
+                        } else {
+                            this.nextStep(this.btnPrev)
+
+                            setTimeout(() => {
+                                this.btnPrev.disabled = false
+                                this.sliderField.style.transition = ''
+                            }, this.speed)
+                        }
+                    })
+
                 } else {
-                    this.nextStep(this.btnNext)
-                    
-                    setTimeout(() => {
-                        this.btnNext.disabled = false
-                        this.sliderField.style.transition = ''
-                    }, this.speed)
-                }
-
-                this.btnPrev.disabled = false
-                this.btnPrev.style.opacity = 1
-            })
-
-            this.btnPrev.disabled = true
-            this.btnPrev.addEventListener('click', () => {
-                this.index--
-
-                if(this.index == 0) {
-                    this.nextStep(this.btnPrev)
-                } else {
-                    this.nextStep(this.btnPrev)
-
-                    setTimeout(() => {
-                        this.btnPrev.disabled = false
-                        this.sliderField.style.transition = ''
-                    }, this.speed)
-                }
-
-                this.btnNext.disabled = false
-                this.btnNext.style.opacity = 1
-            })
-        }
-
+                    if(this.next){
+                        this.btnNext.addEventListener('click', () => {
+                            this.index++
         
+                            if(this.index == this.sliderCount - 1) {
+                                this.nextStep(this.btnNext)
+                                
+                                setTimeout(() => {
+                                    this.sliderField.style.transition = ''
+                                }, this.speed)
+                            } else {
+                                this.nextStep(this.btnNext)
+                                
+                                setTimeout(() => {
+                                    this.btnNext.disabled = false
+                                    this.sliderField.style.transition = ''
+                                }, this.speed)
+                            }
+        
+                            this.btnPrev.disabled = false
+                            this.btnPrev.style.opacity = 1
+                        })
+        
+                        this.btnPrev.disabled = true
+                        this.btnPrev.addEventListener('click', () => {
+                            this.index--
+        
+                            if(this.index == 0) {
+                                this.nextStep(this.btnPrev)
+                            } else {
+                                this.nextStep(this.btnPrev)
+        
+                                setTimeout(() => {
+                                    this.btnPrev.disabled = false
+                                    this.sliderField.style.transition = ''
+                                }, this.speed)
+                            }
+        
+                            this.btnNext.disabled = false
+                            this.btnNext.style.opacity = 1
+                        })
+                }
+            }
+
+            if(this.pagination){
+                this.paginationParent.addEventListener('click', e => {
+                    this.itemClick = e.target
+                    if(this.itemClick.classList.contains('pagination')){
+                        this.index = this.itemClick.getAttribute('data-pagination')
+
+                        clearTimeout(this.PaginationAnimateDelete)
+
+                        for(let item of this.paginationParent.children) {
+                            item.classList.remove(this.paginationItemActiveClass)
+                        }
+
+                        this.sliderField.style.transition = `transform ${this.speed}ms ease-out`
+                        this.sliderField.style.transform = `translateX(-${this.index * this.step}px)`
+                        this.itemClick.classList.add(this.paginationItemActiveClass)
+
+                        this.PaginationAnimateDelete = setTimeout(() => {
+                            this.sliderField.style.transition = ``
+                        }, this.speed)
+                    }
+                })
+                
+            }
+        }
 
         resize() {
             window.addEventListener('resize', this.setParametres)
@@ -536,11 +379,17 @@ document.addEventListener('DOMContentLoaded', () => {
             this.setParametres = this.setParametres.bind(this)
             this.binds = this.binds.bind(this)
             this.resize = this.resize.bind(this)
+            this.touchMobile = this.touchMobile.bind(this)
             this.countStep = 1
+            this.touchX = 0
+            this.dragX = 0
+            this.isDragging = false
 
             this.resize()
             this.setParametres()
             this.binds()
+            this.touchMobile()
+
         }
 
         setParametres() {
@@ -574,7 +423,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     this.index--
                 } else {
                     this.nextStep(this.btnNext)
-
                     setTimeout(() => {
                         this.sliderField.style.transition = ''
                         this.btnNext.disabled = false
@@ -602,21 +450,119 @@ document.addEventListener('DOMContentLoaded', () => {
             })
         }
 
+        touchMobile() {
+            this.sliderField.addEventListener('touchstart', this.touchStart, false)
+            this.sliderField.addEventListener('touchmove', this.touchMove, false)
+        }
+
+        touchStart(e) {
+            this.touchX = e.touches[0].pageX
+        }
+
+        touchMove(e) {
+            if(!this.touchX) {
+                return false
+            }
+
+            this.dragX = e.touches[0].pageX
+
+            this.dragShift = this.dragX - this.touchX
+            
+            
+        }
+
     }
 
-    new InnerSlider({
-        container: '.inner2__slider',
-        next: 'slider__main-next',
-        prev: 'slider__main-left',
-        speed: 500
-    })
+    // new InnerSlider({
+    //     container: '.inner2__slider',
+    //     next: 'slider__main-next',
+    //     prev: 'slider__main-left',
+    //     speed: 500,
+    //     infinity: true
+    // })
 
-    new ProductSlider({
-        container: '.new-products__slider',
-        next: 'slider__main-next',
-        prev: 'slider__main-left',
-        speed: 500
-    })
+    // new InnerSlider({
+    //     container: '.reviews__slider',
+    //     speed: 500,
+    //     pagination: ['reviews__paginations', 'reviews__pagination', 'reviews__pagination_active']
+    // })
+
+    // new ProductSlider({
+    //     container: '.new-products__slider',
+    //     next: 'slider__main-next',
+    //     prev: 'slider__main-left',
+    //     speed: 500
+    // })
+
+    // new ProductSlider({
+    //     container: '.custome__slider ',
+    //     next: 'slider__main-next',
+    //     prev: 'slider__main-left',
+    //     speed: 500
+    // })
+
+    // new ProductSlider({
+    //     container: '.msi-laptops__slider_one',
+    //     next: 'slider__main-next',
+    //     prev: 'slider__main-left',
+    //     speed: 500
+    // })
+
+    // new ProductSlider({
+    //     container: '.msi-laptops__slider_two',
+    //     next: 'slider__main-next',
+    //     prev: 'slider__main-left',
+    //     speed: 500
+    // })
+
+    // new ProductSlider({
+    //     container: '.msi-laptops__slider_three',
+    //     next: 'slider__main-next',
+    //     prev: 'slider__main-left',
+    //     speed: 500
+    // })
+
+    // new ProductSlider({
+    //     container: '.msi-laptops__slider_four',
+    //     next: 'slider__main-next',
+    //     prev: 'slider__main-left',
+    //     speed: 500
+    // })
+
+    // new ProductSlider({
+    //     container: '.desctops__slider_one',
+    //     next: 'slider__main-next',
+    //     prev: 'slider__main-left',
+    //     speed: 500
+    // })
+
+    // new ProductSlider({
+    //     container: '.desctops__slider_two',
+    //     next: 'slider__main-next',
+    //     prev: 'slider__main-left',
+    //     speed: 500
+    // })
+
+    // new ProductSlider({
+    //     container: '.desctops__slider_three',
+    //     next: 'slider__main-next',
+    //     prev: 'slider__main-left',
+    //     speed: 500
+    // })
+
+    // new ProductSlider({
+    //     container: '.desctops__slider_four',
+    //     next: 'slider__main-next',
+    //     prev: 'slider__main-left',
+    //     speed: 500
+    // })
+
+    // new ProductSlider({
+    //     container: '.monitors__slider',
+    //     next: 'slider__main-next',
+    //     prev: 'slider__main-left',
+    //     speed: 500
+    // })
 
 
     //табы с помощью класса
@@ -668,8 +614,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    new Tabs('.msi-category', '.msi-categories', '.msi-laptops__slider')
-    new Tabs('.desctops__category', '.desctops__categories', '.laptops__slider')
+    // new Tabs('.msi-category', '.msi-categories', '.msi-laptops__slider')
+    // new Tabs('.desctops__category', '.desctops__categories', '.desctops__slider')
 
     //footer
     const footerBtns = document.querySelectorAll('.footer-list__btn')
@@ -835,5 +781,48 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     })
 
+
+
+    menuList.addEventListener('click', e => {
+        pathLink = []
+        if(e.target.closest('.menu__item')){
+            const firstLink = e.target.closest('.menu__item').querySelector('a').textContent.trim()
+            
+            pathLink.push(firstLink)
+        }
+
+        if(e.target.closest('.sub-first__item')){
+            const twoLink = e.target.closest('.sub-first__item').querySelector('a').textContent.trim()
+            pathLink.push(twoLink)
+        }
+
+        if(e.target.closest('.sub-two__item')) {
+            const threeLink = e.target.closest('.sub-two__item').querySelector('a').textContent.trim()
+            pathLink.push(threeLink)
+        }
+
+        if(e.target.closest('.sub-three__item')) {
+            const fourLink = e.target.closest('.sub-three__item').querySelector('a').textContent.trim()
+            pathLink.push(fourLink)
+        }
+
+        localStorage.setItem('links-catalog', pathLink)
+    })
+
+    const pathHTML = document.querySelector('.path')
+    const pathItem = localStorage.getItem('links-catalog').split(',')
+
+    for(let i = 0; i < pathItem.length; i++) {
+        if (i == pathItem.length - 1) {
+            pathHTML.insertAdjacentHTML('beforeend', `
+                <a href="" class="path__link path__link_last">${pathItem[i]}</a>
+            `)
+        } else {
+            pathHTML.insertAdjacentHTML('beforeend', `
+                <a href="" class="path__link">${pathItem[i]} <span>›</span></a>
+            `)
+        }
+    }
+    
     
 })

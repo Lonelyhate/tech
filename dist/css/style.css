@@ -781,6 +781,7 @@ dd {
 
 .cart-products {
   margin-bottom: 16px;
+  overflow: hidden;
 }
 
 .cart-products__item {
@@ -1387,7 +1388,7 @@ dd {
 }
 
 .custome__content {
-  max-width: 100%;
+  max-width: calc(100% - 232px);
 }
 
 .custome-slider__right {
@@ -1402,8 +1403,10 @@ dd {
       -ms-flex-align: center;
           align-items: center;
   position: relative;
-  overflow: hidden;
-  width: calc(100% + 15px);
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
+  max-width: calc(100% + 15px);
 }
 
 .no-webp .custome__inner {
@@ -1618,11 +1621,15 @@ dd {
   text-align: center;
 }
 
-.reviews__slider {
+.reviews__content {
   max-width: 1160px;
   background-color: #F5F7FF;
   margin: 0 auto;
   padding: 50px 120px;
+}
+
+.reviews__slider {
+  position: relative;
 }
 
 .reviews__wrapper {
@@ -1638,6 +1645,10 @@ dd {
   -o-transition: transform 0.5s ease-out;
   transition: transform 0.5s ease-out;
   transition: transform 0.5s ease-out, -webkit-transform 0.5s ease-out;
+}
+
+.reviews__item {
+  width: 100%;
 }
 
 .reviews__text {
@@ -1695,6 +1706,10 @@ dd {
 }
 
 .reviews__paginations {
+  position: absolute;
+  z-index: 150;
+  right: 0;
+  bottom: -24px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1754,6 +1769,35 @@ dd {
   font-size: 14px;
   line-height: 19px;
   color: #000000;
+}
+
+.catalog-banner__img {
+  width: 100%;
+}
+
+.catalog-banner__img img {
+  display: block;
+  min-height: 60px;
+  width: 100%;
+}
+
+.path {
+  padding: 20px 0;
+}
+
+.path__link {
+  font-size: 12px;
+  line-height: 18px;
+  color: #000000;
+  text-decoration: none;
+}
+
+.path__link span {
+  color: #0156FF;
+}
+
+.path__link_last {
+  color: #A2A6B0;
 }
 
 .footer {
@@ -1948,6 +1992,12 @@ dd {
   .new-products__content {
     width: calc(100% + 15px);
     padding-right: 0;
+  }
+}
+
+@media (max-width: 1398px) {
+  .custome__content {
+    max-width: calc(100% - 217px);
   }
 }
 
@@ -2596,7 +2646,7 @@ dd {
   }
 
   .reviews__slider {
-    padding: 30px 20px;
+    padding: 0px 10px;
   }
 
   .reviews__text p {
@@ -2609,8 +2659,13 @@ dd {
     margin-top: -5px;
   }
 
+  .reviews__content {
+    padding: 20px 30px;
+  }
+
   .reviews__author {
     font-size: 10px;
+    margin-bottom: 15px;
   }
 
   .reviews__pagination {
@@ -2654,6 +2709,10 @@ dd {
 @media (max-width: 768px) and (max-width: 550px) {
   .reviews__slider {
     padding: 25px 15px;
+  }
+
+  .reviews__content {
+    padding: 20px 10;
   }
 
   .reviews__text span {
@@ -2716,6 +2775,10 @@ dd {
 
   .custome {
     padding-bottom: 15px;
+  }
+
+  .custome__content {
+    max-width: 100%;
   }
 
   .custome__container {

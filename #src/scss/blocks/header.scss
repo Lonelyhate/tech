@@ -435,6 +435,7 @@
     }
     &-products{
         margin-bottom: 16px;
+        overflow: hidden;
         &__item{
             border-top: 1px solid #CACDD8;
             border-bottom: 1px solid #CACDD8;
