@@ -9,6 +9,9 @@
   "author": "Nikita Fedorov",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "babel-loader": "^8.2.3",
     "browser-sync": "^2.27.7",
     "del": "^6.0.0",
     "gulp": "^4.0.2",
@@ -28,6 +31,10 @@
     "gulp-webp-html": "^1.0.2",
     "gulp-webpcss": "^1.1.1",
     "sass": "^1.43.4",
-    "webp-converter": "^2.2.3"
+    "webp-converter": "^2.2.3",
+    "webpack": "^5.65.0"
+  },
+  "dependencies": {
+    "webpack-stream": "^7.0.0"
   }
 }

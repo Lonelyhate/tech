@@ -1,0 +1,249 @@
+.catalog-content {
+}
+.container {
+}
+.catalog__title {
+    font-weight: 600;
+    font-size: 32px;
+    color: $colorBlack;
+    margin-bottom: 20px;
+}
+.catalog__top {
+}
+.catalog-top {
+    display: flex;
+    width: 100%;
+}
+.catalog-top__back {
+    width: 234px;
+    height: 50px;
+    background: none;
+    border: none;
+    font-size: 14px;
+    color: $colorBlack;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+.catalog-top__options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.catalog-top__quaintity {
+    font-size: 13px;
+    color: $colorGrey;
+}
+.catalot-top__select {
+    display: flex;
+    align-items: center;
+}
+.select {
+    position: relative;
+    width: 176px;
+    z-index: 10;
+    &:first-child{
+        margin-right: 11px;
+    }
+}
+.select.is-active .select__body {
+    display: block;
+}
+.select__header {
+    border: 2px solid #CACDD8;
+    cursor: pointer;
+    padding: 18px 0 15px;
+}
+.select__curent {
+    background-color: $colorFFF;
+    font-weight: 600px;
+    font-size: 13px;
+    color: $colorGrey;
+    span{
+        font-weight: 600;
+        color: $colorBlack;
+    }
+}
+.select__body {
+    background-color: $colorFFF;
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(100% - 2px);
+    border: 2px solid #CACDD8;
+}
+.select__item {
+    font-weight: 600px;
+    font-size: 13px;
+    color: $colorGrey;
+    padding: 18px 0 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-out;
+    span{
+        font-weight: 600;
+        color: $colorBlack;
+    }
+    &:hover{
+        background-color: $colorLight;
+    }
+}
+.select__btn-left {
+    background: url('../../img/icons/sort-one.png') center no-repeat;
+    background-size: cover;
+    height: 20px;
+    width: 20px;
+    border: none;
+    cursor: pointer;
+    margin-right: 15px;
+    margin-left: 20px;
+}
+.select__btn-right {
+    background: url('../../img/icons/sort-two.png') center no-repeat;
+    background-size: cover;
+    height: 20px;
+    width: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.catalog__content {
+    display: flex;
+}
+.catalog__filters {
+}
+.filters {
+    width: 234px;
+    padding: 20px 18px 20px 16px;
+    background-color: $colorLight;
+}
+.filters__title {
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 24px;
+    margin-bottom: 20px;
+}
+.filters__clear {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 37px;
+    border-radius: 50px;
+    color: #A2A6B0;
+    border: 2px solid #A2A6B0;
+    background: none;
+    cursor: pointer;
+    margin-bottom: 25px;
+}
+.filters__list {
+    
+}
+.filters__item {
+    position: relative;
+    z-index: 10;
+    margin-bottom: 10px;
+    
+}
+.filters__btn {
+    position: relative;
+    z-index: 10;
+    text-align: left;
+    background: none;
+    color: $colorBlack;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 600;
+    padding: 0;
+    width: 100%;
+    border: none;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.filters__choise {
+    position: relative;
+    transition: all 0.3s ease-out;
+    
+}
+.filters__choise.active{
+    overflow: hidden;
+}
+.filters__category {
+    display: flex;
+    justify-content: space-between;
+    background: none;
+    width: 100%;
+    text-align: left;
+    font-size: 13px;
+    line-height: 27px;
+    padding: 0;
+
+    border: none;
+    cursor: pointer;
+}
+.filters__apply {
+    width: 100%;
+    color: $colorFFF;
+    background-color: $colorBlue;
+    border-radius: 50px;
+    height: 37px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+}
+
+.filters__labels{
+    height: 40px;
+}
+
+.filters__label {
+    margin-right: 30px;
+    position: relative;
+}
+
+.filters__radio {
+    display: none;
+}
+.filters__text {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    &::before{
+        content: '';
+        display: block;
+        width: 23px;
+        height: 23px;
+        background: black;
+        position: absolute;
+        top: -10px;
+        left: 0;
+        border-radius: 50%;
+    }
+    &::after{
+        content: '';
+        position: absolute;
+        display: block;
+        top: -13.6px;
+        left: -3.3px;
+        width: 30px;
+        height: 30px;
+        border: 2px solid #0156FF;
+        opacity: 0;
+        transition: 0.2s;
+        border-radius: 50%;
+    }
+}
+.filters__radio:checked + .filters__text::after{
+    opacity: 1;
+}
+.filters__red{
+    &::before{
+        background: #DB0000;
+    }
+}
+.catalog__grid{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}

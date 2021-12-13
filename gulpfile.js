@@ -3,7 +3,7 @@ const fileinclude = require('gulp-file-include');
 let project_folder="dist"
 let source_folder="#src"
 
-let fs = require('fs')
+let fs = require('fs');
 
 let path = {
     build: {
@@ -16,7 +16,7 @@ let path = {
     src: {
         html: [source_folder + "/*.html", "!" + source_folder + "/_*.html"],
         css: source_folder + "/scss/style.scss",
-        js: source_folder + "/js/script.js",
+        js: source_folder + "/js/*.js",
         img: source_folder + "/img/**/*",
         fonts: source_folder + "/fonts/*.ttf"
     },
@@ -45,7 +45,8 @@ let { src, dest } = require('gulp'),
     webpcss = require("gulp-webpcss"),
     ttf2woff = require("gulp-ttf2woff"),
     ttf2woff2 = require("gulp-ttf2woff2"),
-    fonter = require("gulp-fonter")
+    fonter = require("gulp-fonter"),
+    webpack = require("webpack-stream")
 
 function browserSync() {
     browsersync.init({
@@ -98,17 +99,15 @@ function css() {
 
 function js() {
     return src(path.src.js)
-        .pipe(fileinclude())
-        .pipe(dest(path.build.js))
-        .pipe(
-            uglify()
-        )
-        .pipe(
-            rename({
-                extname: ".min.js"
-            })
-        )
-        .pipe(dest(path.build.js))
+        .pipe(webpack({
+            mode: "development",
+            output: {
+                filename: 'script.js'
+            },
+            watch: false,
+            devtool: "source-map"
+        }))
+        .pipe(dest('./dist/js'))
         .pipe(browsersync.stream())
 }
 
