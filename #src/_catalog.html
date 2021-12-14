@@ -3,6 +3,7 @@
         <h2 class="catalog__title">MSI PS Series (20)</h2>
         <div class="catalog__top catalog-top">
             <button class="catalog-top__back">Back</button>
+            <button class="catalog-top__btn">Filter</button>
             <div class="catalog-top__options">
                 <p class="catalog-top__quaintity">Items 1-35 of 61</p>
                 <div class="catalot-top__select">
@@ -29,70 +30,96 @@
                 </div>
             </div>
         </div>
-        <div class="catalog__content">
-            <form class="catalog__filters filters">
-                <h4 class="filters__title">Filters</h4>
-                <button class="filters__clear">Clear Filter</button>
-                <ul class="filters__list">
-                    <li class="filters__item">
-                        <button class="filters__btn">Category</button>
-                        <ul class="filters__choise">
-                            <li>
-                                <button class="filters__category">CUSTOM PCS <span>15</span></button>
-                            </li>
-                            <li>
-                                <button class="filters__category">MSI ALL-IN-ONE PCS <span>45</span></button>
-                            </li>
-                            <li>
-                                <button class="filters__category">HP/COMPAQ PCS <span>1</span></button>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="filters__item">
-                        <button class="filters__btn">Price</button>
-                        <ul class="filters__choise">
-                            <li>
-                                <button class="filters__category">$0.00 - $1,000.00 <span>19</span></button>
-                            </li>
-                            <li>
-                                <button class="filters__category">$1,000.00 - $2,000.00 <span>21</span></button>
-                            </li>
-                            <li>
-                                <button class="filters__category">$2,000.00 - $3,000.00 <span>9</span></button>
-                            </li>
-                            <li>
-                                <button class="filters__category">$3,000.00 - $4,000.00 <span>6</span></button>
-                            </li>
-                            <li>
-                                <button class="filters__category">$4,000.00 - $5,000.00 <span>3</span></button>
-                            </li>
-                            <li>
-                                <button class="filters__category">$5,000.00 - $6,000.00 <span>1</span></button>
-                            </li>
-                            <li>
-                                <button class="filters__category">$6,000.00 - $7,000.00 <span>1</span></button>
-                            </li>
-                            <li>
-                                <button class="filters__category">$7,000.00 And Above <span>1</span></button>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="filters__item">
-                        <button class="filters__btn">Color</button>
-                        <div class="filters__choise filters__labels">
-                            <label class="filters__label">
-                                <input type="radio" name="color" class="filters__radio">
-                                <span class="filters__text"></span>
-                            </label>
-                            <label class="filters__label">
-                                <input type="radio" name="color" class="filters__radio">
-                                <span class="filters__text filters__red"></span>
-                            </label>
+        <div  class="catalog__content">
+            <div class="catalog__left">
+                <form class="catalog__filters filters">
+                    <h4 class="filters__title">Filters</h4>
+                    <button class="filters__clear">Clear Filter</button>
+                    <ul class="filters__list">
+                        <li class="filters__item">
+                            <button class="filters__btn">Category</button>
+                            <ul class="filters__choise">
+                                <li>
+                                    <button class="filters__category">CUSTOM PCS <span>15</span></button>
+                                </li>
+                                <li>
+                                    <button class="filters__category">MSI ALL-IN-ONE PCS <span>45</span></button>
+                                </li>
+                                <li>
+                                    <button class="filters__category">HP/COMPAQ PCS <span>1</span></button>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="filters__item">
+                            <button class="filters__btn">Price</button>
+                            <ul class="filters__choise">
+                                <li>
+                                    <button class="filters__category">$0.00 - $1,000.00 <span>19</span></button>
+                                </li>
+                                <li>
+                                    <button class="filters__category">$1,000.00 - $2,000.00 <span>21</span></button>
+                                </li>
+                                <li>
+                                    <button class="filters__category">$2,000.00 - $3,000.00 <span>9</span></button>
+                                </li>
+                                <li>
+                                    <button class="filters__category">$3,000.00 - $4,000.00 <span>6</span></button>
+                                </li>
+                                <li>
+                                    <button class="filters__category">$4,000.00 - $5,000.00 <span>3</span></button>
+                                </li>
+                                <li>
+                                    <button class="filters__category">$5,000.00 - $6,000.00 <span>1</span></button>
+                                </li>
+                                <li>
+                                    <button class="filters__category">$6,000.00 - $7,000.00 <span>1</span></button>
+                                </li>
+                                <li>
+                                    <button class="filters__category">$7,000.00 And Above <span>1</span></button>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="filters__item">
+                            <button class="filters__btn">Color</button>
+                            <div class="filters__choise filters__labels">
+                                <label class="filters__label">
+                                    <input type="radio" name="color" class="filters__radio">
+                                    <span class="filters__text"></span>
+                                </label>
+                                <label class="filters__label">
+                                    <input type="radio" name="color" class="filters__radio">
+                                    <span class="filters__text filters__red"></span>
+                                </label>
+                            </div>
+                        </li>
+                    </ul>
+                    <button class="filters__apply">Apply Filters (<span>2</span>)</button>
+                </form>
+                <div class="catalog__brands catalog-brands">
+                    <h3 class="catalog-brands__title">Brands</h3>
+                    <a href="" class="catalog-brands__link">All Brands</a>
+                    <div class="brands-catalog__content">
+                        <div class="brands-catalog__img">
+                            <img src="img/brands/1.png" alt="">
                         </div>
-                    </li>
-                </ul>
-                <button class="filters__apply">Apply Filters (<span>2</span>)</button>
-            </form>
+                        <div class="brands-catalog__img">
+                            <img src="img/brands/2.png" alt="">
+                        </div>
+                        <div class="brands-catalog__img">
+                            <img src="img/brands/3.png" alt="">
+                        </div>
+                        <div class="brands-catalog__img">
+                            <img src="img/brands/4.png" alt="">
+                        </div>
+                        <div class="brands-catalog__img">
+                            <img src="img/brands/5.png" alt="">
+                        </div>
+                        <div class="brands-catalog__img">
+                            <img src="img/brands/6.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="catalog__grid">
                 <article class="product-slider__item product">
                     <div class="product__hovers">
