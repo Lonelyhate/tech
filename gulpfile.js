@@ -1,196 +1,56 @@
-const fileinclude = require('gulp-file-include');
+//Основной модуль
+import gulp from "gulp";
+//Импорт путей
+import { path } from "./gulp/config/path.js";
+//импорт общих плагинов
+import { plugins } from "./gulp/config/plugins.js"
 
-let project_folder="dist"
-let source_folder="#src"
-
-let fs = require('fs');
-
-let path = {
-    build: {
-        html: project_folder + "/",
-        css: project_folder + "/css/",
-        js: project_folder + "/js/",
-        img: project_folder + "/img/",
-        fonts: project_folder + "/fonts/"
-    },
-    src: {
-        html: [source_folder + "/*.html", "!" + source_folder + "/_*.html"],
-        css: source_folder + "/scss/style.scss",
-        js: source_folder + "/js/*.js",
-        img: source_folder + "/img/**/*",
-        fonts: source_folder + "/fonts/*.ttf"
-    },
-    watch: {
-        html: source_folder + "/**/*.html",
-        css: source_folder + "/scss/**/*.scss",
-        js: source_folder + "/js/**/*.js",
-        img: source_folder + "/img/**/*"
-    },
-    clean: "./" + project_folder + "/"
+//Передаем зачения в глобальную переменную
+global.app = {
+    isBuild: process.argv.includes('--build'),
+    isDev: !process.argv.includes('--build'),
+    path: path,
+    gulp: gulp,
+    plugins: plugins
 }
 
-let { src, dest } = require('gulp'),
-    gulp = require('gulp'),
-    browsersync = require('browser-sync').create(),
-    del = require("del"),
-    scss  = require('gulp-sass')(require('sass')),
-    autoprefixer = require("gulp-autoprefixer"),
-    group_media = require("gulp-group-css-media-queries"),
-    clean_css = require("gulp-clean-css"),
-    rename = require("gulp-rename"),
-    uglify = require("gulp-uglify-es").default,
-    imagemin = require("gulp-imagemin"),
-    webp = require("gulp-webp"),
-    webphtml = require("gulp-webp-html"),
-    webpcss = require("gulp-webpcss"),
-    ttf2woff = require("gulp-ttf2woff"),
-    ttf2woff2 = require("gulp-ttf2woff2"),
-    fonter = require("gulp-fonter"),
-    webpack = require("webpack-stream")
+//Импорт задач
+import { copy } from "./gulp/tasks/copy.js";
+import { reset } from "./gulp/tasks/reset.js";
+import { html } from "./gulp/tasks/html.js"
+import { server } from "./gulp/tasks/server.js"
+import { scss } from "./gulp/tasks/scss.js";
+import { js } from "./gulp/tasks/js.js";
+import { images } from "./gulp/tasks/images.js";
+import { otfToTtf, ttfToWoff, fontsStyle } from "./gulp/tasks/fonst.js";
+import { svgSprite } from './gulp/tasks/svgSprite.js';
+import { zip } from './gulp/tasks/zip.js'
 
-function browserSync() {
-    browsersync.init({
-        server: {
-            baseDir: "./" + project_folder + "/"
-        },
-        port: 3000,
-        notify: false
-    })
+//Наблюдатель за изменениями
+function wathcer() {
+    gulp.watch(path.watch.files, copy) //watch([путь к файлам], [действие])
+    gulp.watch(path.watch.html, html)
+    gulp.watch(path.watch.scss, scss)
+    gulp.watch(path.watch.js, js)
+    gulp.watch(path.watch.images, images)
+    gulp.watch(path.watch.svgicons, svgSprite)
 }
 
-function html() {
-    return src(path.src.html)
-        .pipe(fileinclude())
-        .pipe(webphtml())
-        .pipe(dest(path.build.html))
-        .pipe(browsersync.stream())
-}
+//последовательная обработка шрифтов
+const fonts = gulp.series(otfToTtf, ttfToWoff, fontsStyle)
 
-function css() {
-    return src(path.src.css)
-        .pipe(
-            scss({ outputStyle: 'expanded' }).on('error', scss.logError)
-        )
-        .pipe(
-            group_media()
-        )
-        .pipe(
-            autoprefixer({
-                overrideBrowserslist: ["last 5 versions"],
-                cascade: true,
-            })
-        )
-        .pipe(
-            webpcss({
-                webpClass: '.webp',
-                noWebpClass: '.no-webp'
-            })
-        )
-        .pipe(dest(path.build.css))
-        .pipe(clean_css())
-        .pipe(
-            rename({
-                extname: ".min.css"
-            })
-        )
-        .pipe(dest(path.build.css))
-        .pipe(browsersync.stream())
-}
+//основные задачи
+const mainTasks = gulp.series(fonts, gulp.parallel(copy, html, scss, js, images, svgSprite))
 
-function js() {
-    return src(path.src.js)
-        .pipe(webpack({
-            mode: "development",
-            output: {
-                filename: 'script.js'
-            },
-            watch: false,
-            devtool: "source-map"
-        }))
-        .pipe(dest('./dist/js'))
-        .pipe(browsersync.stream())
-}
+//Построение сценариев выполнения задач
+const dev = gulp.series(reset, mainTasks, gulp.parallel(wathcer, server)) 
+const build = gulp.series(reset, mainTasks)
+const deployZIP = gulp.series(reset, mainTasks, zip)
 
-function images() {
-    return src(path.src.img)
-        .pipe(
-            webp({
-                quality: 70
-            })
-        )
-        .pipe(dest(path.build.img))
-        .pipe(src(path.src.img))
-        .pipe(
-            imagemin({
-                progressive: true,
-                svgoPlugins: [{ removerViewBox: false}],
-                interlaced: true,
-                optimizationLevel: 3
-            })
-        )
-        .pipe(dest(path.build.img))
-        .pipe(browsersync.stream())
-}
+//Экспорт сценариев
+export { dev }
+export { build }
+export { deployZIP }
 
-function fonts() {
-    src(path.src.fonts)
-        .pipe(ttf2woff())
-        .pipe(dest(path.build.fonts))
-        return src(path.src.fonts)
-        .pipe(ttf2woff2())
-        .pipe(dest(path.build.fonts))
-}
-
-gulp.task('otf2ttf', function () {
-    return gulp.src([source_folder + '/fonts/*.otf'])
-    .pipe(fonter({
-        format: ['ttf']
-    }))
-    .pipe(dest(source_folder + '/fonts/'))
-})
-
-function fontsStyle(params) {
-    let file_content = fs.readFileSync(source_folder + '/scss/fonts.scss');
-    if (file_content == '') {
-        fs.writeFile(source_folder + '/scss/fonts.scss', '', cb);
-        return fs.readdir(path.build.fonts, function (err, items) {
-            if (items) {
-                let c_fontname;
-                for (var i = 0; i < items.length; i++) {
-                    let fontname = items[i].split('.');
-                    fontname = fontname[0];
-                    if (c_fontname != fontname) {
-                        fs.appendFile(source_folder + '/scss/fonts.scss', '@include font("' + fontname + '", "' + fontname + '", "400", "normal");\r\n', cb)
-                    }
-                    c_fontname = fontname;
-                }
-            }
-        })
-    }
-}
-
-function cb() { }
-
-function watchFiles() {
-    gulp.watch([path.watch.html], html)
-    gulp.watch([path.watch.css], css)
-    gulp.watch([path.watch.js], js)
-    gulp.watch([path.watch.img], images)
-}
-
-function clean() {
-    return del(path.clean)
-}
-
-let build = gulp.series(clean, gulp.parallel(js, css, html, images, fonts), fontsStyle)
-let watch = gulp.parallel(build, watchFiles, browserSync)
-
-exports.fontsStyle = fontsStyle
-exports.fonts = fonts
-exports.images = images
-exports.js = js
-exports.css = css
-exports.html = html
-exports.build = build
-exports.watch = watch
-exports.default = watch
+//Выполняем сценарий по умолчанию
+gulp.task('default', dev)
