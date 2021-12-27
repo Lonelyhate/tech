@@ -10,6 +10,7 @@ import footer from "./modules/footer.js"
 import pathCatalog from "./modules/pathCatalog.js"
 import selects from "./modules/selects.js"
 import filters from "./modules/filters.js"
+import textGradient from "./modules/textGradient.js"
 
 window.addEventListener('DOMContentLoaded', () => {
     //Провека с какого устройство
@@ -134,6 +135,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
     //Каталог фильтры
     filters()
+
+    //Текст градиента показать больше
+    textGradient()
 
     //закрытие окон
     closeWindows()

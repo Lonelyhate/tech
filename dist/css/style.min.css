@@ -200,6 +200,7 @@ dd {
 }
 .header-top__schedule svg {
   display: block;
+  stroke: #fff;
   height: 6px;
   width: 8px;
   margin-bottom: 2px;
@@ -2019,6 +2020,11 @@ dd {
 .advantage {
   padding: 54px 0;
 }
+.advantage__catalog {
+  position: relative;
+  z-index: 10;
+  background-color: #F5F7FF;
+}
 
 .advantage__content {
   display: flex;
@@ -2169,10 +2175,23 @@ dd {
   display: block;
 }
 
+.select.is-active .select__header svg {
+  transform: rotate(180deg);
+}
+
 .select__header {
   border: 2px solid #CACDD8;
   cursor: pointer;
-  padding: 18px 0 15px;
+  padding: 18px 20px 15px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.select__header svg {
+  width: 8px;
+  height: 6px;
+  stroke: #000000;
+  transition: transform 0.3s ease-out;
 }
 
 .select__curent {
@@ -2270,13 +2289,13 @@ dd {
 
 .filters__item {
   position: relative;
-  z-index: 10;
+  z-index: 20;
   margin-bottom: 10px;
 }
 
 .filters__btn {
   position: relative;
-  z-index: 10;
+  z-index: 20;
   text-align: left;
   background: none;
   color: #000000;
@@ -2292,6 +2311,7 @@ dd {
 
 .filters__choise {
   position: relative;
+  z-index: -2;
   transition: all 0.3s ease-out;
 }
 
@@ -2384,7 +2404,8 @@ dd {
 
 .catalog-brands {
   margin-top: 7px;
-  width: 100%;
+  padding-bottom: 1px;
+  width: 234px;
   background-color: #F5F7FF;
 }
 
@@ -2412,10 +2433,10 @@ dd {
 
 .catalog-brands__content {
   width: calc(100% - 2px);
-  margin: 0 auto 7px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1px;
+  row-gap: 1px;
 }
 
 .catalog-brands__img {
@@ -2433,11 +2454,61 @@ dd {
   margin: 0 auto;
 }
 
+.compare {
+  margin-top: 7px;
+  background-color: #F5F7FF;
+  padding-bottom: 20px;
+}
+.compare.lock {
+  display: none;
+}
+
 .compare__title {
   text-align: center;
   font-size: 16px;
   font-weight: 700;
-  padding: 15px 0;
+  padding: 18px 0;
+}
+
+.compare__content {
+  padding: 11px;
+}
+.compare__content p {
+  font-size: 13px;
+  color: #000000;
+  font-weight: 400;
+  text-align: center;
+}
+
+.wishlist {
+  margin: 7px 0;
+  background-color: #F5F7FF;
+  padding-bottom: 20px;
+}
+.wishlist.lock {
+  display: none;
+}
+
+.wishlist__title {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 18px 0;
+}
+
+.whislist__content {
+  padding: 10px;
+}
+
+.whislist__text {
+  font-size: 13px;
+  color: #000000;
+  font-weight: 400;
+  text-align: center;
+}
+
+.catalog__ad.lock {
+  display: none;
 }
 
 .catalog__right {
@@ -2469,6 +2540,36 @@ dd {
   background-color: #F5F7FF;
 }
 
+.paragraph {
+  padding: 40px 24.5px 35px;
+}
+
+.paragraph__text {
+  font-size: 12px;
+  line-height: 18px;
+  background: linear-gradient(#8c8c8c, #fff);
+  -webkit-background-clip: text;
+  color: transparent;
+  transition: all 0.3s linear;
+}
+.paragraph__text.more {
+  color: #8c8c8c;
+}
+
+.paragraph__btn {
+  display: block;
+  height: 37px;
+  padding: 0 26px;
+  border-radius: 50px;
+  background: none;
+  border: 2px solid #A2A6B0;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: #A2A6B0;
+  margin: 0 auto;
+}
+
 @media (max-width: 1398px) {
   .catalog__grid {
     grid-template-columns: repeat(4, 233px);
@@ -2495,7 +2596,7 @@ dd {
     display: none;
   }
   .select__header {
-    padding: 13px 0 10px;
+    padding: 13px 10px 10px;
   }
   .select__curent {
     font-size: 11px;
@@ -2531,6 +2632,13 @@ dd {
   .catalog-top__quaintity {
     display: none;
   }
+  .catalog__brands {
+    display: none;
+  }
+  .catalog__ad {
+    display: none;
+  }
+
   .filters {
     position: fixed;
     width: 100%;
@@ -2578,6 +2686,39 @@ dd {
 
   .filters.active {
     top: 0;
+  }
+
+  .compare {
+    display: none;
+  }
+
+  .wishlist {
+    display: none;
+  }
+
+  .compare.lock {
+    display: block;
+    max-width: 346px;
+    margin: 30px auto 7px;
+  }
+
+  .wishlist.lock {
+    display: block;
+    max-width: 346px;
+    margin: 0 auto 7px;
+  }
+
+  .catalog__ad.lock {
+    display: block;
+    text-align: center;
+  }
+
+  .paragraph {
+    padding: 15px 0 0;
+    margin-bottom: 0;
+  }
+  .paragraph__btn {
+    font-size: 11px;
   }
 }
 @media (max-width: 550px) {
