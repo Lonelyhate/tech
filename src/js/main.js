@@ -11,6 +11,7 @@ import pathCatalog from "./modules/pathCatalog.js"
 import selects from "./modules/selects.js"
 import filters from "./modules/filters.js"
 import textGradient from "./modules/textGradient.js"
+import productAbout from "./modules/productAbout.js"
 
 window.addEventListener('DOMContentLoaded', () => {
     //Провека с какого устройство
@@ -120,6 +121,14 @@ window.addEventListener('DOMContentLoaded', () => {
         new Tabs('.desctops__category', '.desctops__categories', '.desctops__slider')
 
     } catch(e) {}
+
+    try{
+        new InnerSlider({
+            container: '.product-middle__slider',
+            speed: 500,
+            pagination: ['product-middle__paginations', 'product-middle__pagination', 'product-middle__pagination_active']
+        })
+    } catch(e) {}
     
     //Футер аккордеон
     footer()
@@ -133,11 +142,16 @@ window.addEventListener('DOMContentLoaded', () => {
     //Селекты
     selects()
 
-    //Каталог фильтры
-    filters()
+    //страница продукта
+    productAbout()
 
-    //Текст градиента показать больше
-    textGradient()
+    //Каталог фильтры
+    try{
+        filters()
+
+         //Текст градиента показать больше
+        textGradient()
+    } catch(e) {}
 
     //закрытие окон
     closeWindows()

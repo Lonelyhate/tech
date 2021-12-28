@@ -99,6 +99,19 @@ dd {
     background-color: rgba(37,41,49, 0.5);
 }
 
+.tabs_hide{
+    display: none;
+}
+
+.tabs_show{
+    display: block;
+}
+
+.tabs_active{
+    color: $colorBlack;
+    border-bottom: 3px solid $colorBlue;
+}
+
 @media (max-width: 768px) {
     .title{
         font: $fontTitleTable;

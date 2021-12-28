@@ -105,19 +105,6 @@
     background: url('../img/monitors/inner.jpg') center no-repeat;
 }
 
-.tabs_hide{
-    display: none;
-}
-
-.tabs_show{
-    display: block;
-}
-
-.tabs_active{
-    color: $colorBlack;
-    border-bottom: 3px solid $colorBlue;
-}
-
 .opac-anim{
     animation-name: opac-anim;
     animation-duration: 0.9s;
