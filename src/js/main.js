@@ -117,10 +117,13 @@ window.addEventListener('DOMContentLoaded', () => {
         })
 
          //табы
-        new Tabs('.msi-category', '.msi-categories', '.msi-laptops__slider')
-        new Tabs('.desctops__category', '.desctops__categories', '.desctops__slider')
-
+        new Tabs('.msi-category', '.msi-categories', '.msi-laptops__slider', 'tabs_active')
+        new Tabs('.desctops__category', '.desctops__categories', '.desctops__slider', 'tabs_active')
     } catch(e) {}
+
+    try{
+        new Tabs('.product-header__name', '.product-header__names', '.product-middle__tabs-content', 'active')
+    }catch(e){}
 
     try{
         new InnerSlider({
@@ -142,8 +145,10 @@ window.addEventListener('DOMContentLoaded', () => {
     //Селекты
     selects()
 
-    //страница продукта
-    productAbout()
+    try{
+        //страница продукта
+        productAbout()
+    } catch(e) {}
 
     //Каталог фильтры
     try{

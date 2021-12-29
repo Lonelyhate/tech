@@ -1,8 +1,9 @@
 export default class Tabs {
-    constructor(tabNamesSelector, tabBtnSelector, tabContentSelector) {
+    constructor(tabNamesSelector, tabBtnSelector, tabContentSelector, activeClassSelector) {
         this.tabsNames = document.querySelectorAll(tabNamesSelector)
         this.tabBtn = document.querySelector(tabBtnSelector)
         this.tabContent = document.querySelectorAll(tabContentSelector)
+        this.tabActiveClass = activeClassSelector
         this.tabClass = tabNamesSelector.slice(1)
 
         this.hideTabs = this.hideTabs.bind(this)
@@ -21,15 +22,15 @@ export default class Tabs {
         })
 
         this.tabsNames.forEach(item => {
-            item.classList.remove('tabs_active')
+            item.classList.remove(this.tabActiveClass)
         })
     }
-
+    
     showTabs(i = 0) {
         this.tabContent[i].classList.remove('tabs_hide')
         this.tabContent[i].classList.add('tabs_show', 'opac-anim')
 
-        this.tabsNames[i].classList.add('tabs_active')
+        this.tabsNames[i].classList.add(this.tabActiveClass)
     }
 
     render() {
