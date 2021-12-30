@@ -131,6 +131,11 @@ window.addEventListener('DOMContentLoaded', () => {
             speed: 500,
             pagination: ['product-middle__paginations', 'product-middle__pagination', 'product-middle__pagination_active']
         })
+        new InnerSlider({
+            container: '.outplay__slider',
+            speed: 500,
+            pagination: ['outplay__paginations', 'outplay__pagination', 'outplay__pagination_active']
+        })
     } catch(e) {}
     
     //Футер аккордеон
