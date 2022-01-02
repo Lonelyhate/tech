@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Наши контакты</title>
+    <title>Login</title>
     <link rel="stylesheet" href="css/style.min.css">
 </head>
 <body>
@@ -2617,76 +2617,40 @@
     </div>
 </header>
     <main class="main">
-        <section class="contactus-form">
+        <section class="customer-login">
     <div class="container">
-        <div class="contactus-form__path path">
+        <div class="customer-login__path path">
             <a href="index.html" class="path__link">Home <span>›</span></a>
         </div>
-        <h2 class="contactus-form__title">Contact Us</h2>
-        <div class="contactus-form__content">
-            <div class="contactus-form__form contact-form">
-                <p class="contact-form__description">We love hearing from you, our Shop customers. <br> Please contact us and we will make sure to get back to you as soon as we possibly can.</p>
-                <form action="" class="contact-form__form">
-                    <label class="contact-form__label">Your name <span>*</span>
-                        <input type="text" class="contact-form__input" name="name" placeholder="Your Name">
-                    </label>
-                    <label class="contact-form__label">Your Email <span>*</span>
-                        <input type="email" class="contact-form__input" name="email" placeholder="Your email">
-                    </label>
-                    <label class="contact-form__label">Your Phone Number
-                        <input type="email" class="contact-form__input" name="phone" placeholder="Your phone">
-                    </label>
-                    <label class="contact-form__label contact-form__label_textarea">Your Phone Number <span>*</span>
-                        <textarea 
-                            name="mind" 
-                            class="contact-form__text"
-                            placeholder="Jot us a note and we’ll get back to you as quickly as possible"
-                        ></textarea>
-                    </label>
-                    <button class="contact-form__btn">Submit</button>
-                </form>
+        <h2 class="customer-login__title">Customer Login</h2>
+        <div class="customer-login__content login">
+            <div class="login__item">
+                <h4 class="login__title">Registered Customers</h4>
+                <p class="login__text">If you have an account, sign in with your email address.</p>
+                <label class="login__label">
+                    Email <span>*</span>
+                    <input type="email" name="email" class="login__input" placeholder="Your Email">
+                </label>
+                <label class="login__label">
+                    Password <span>*</span>
+                    <input type="password" name="password" class="login__input" placeholder="Your Password">
+                </label>
+                <div class="login__btns">
+                    <button class="login__sign">Sign In</button>
+                    <button class="login__forgot">Forgot Your Password?</button>
+                </div>
             </div>
-            <div class="contactus-form__address contact-address">
-                <div class="contact-address__item">
-                    <div class="contact-address__svg">
-                        <img src="img/icons/location.png" alt="">
-                    </div>
-                    <div class="contact-address__text">
-                        <h3 class="contact-address__name">Address:</h3>
-                        <p class="contact-address__about">1234 Street Adress City Address, 1234</p>
-                    </div>
-                </div>
-                <div class="contact-address__item">
-                    <div class="contact-address__svg">
-                        <img src="img/icons/call.png" alt="">
-                    </div>
-                    <div class="contact-address__text">
-                        <h3 class="contact-address__name">Phone:</h3>
-                        <p class="contact-address__about">(00)1234 5678</p>
-                    </div>
-                </div>
-                <div class="contact-address__item">
-                    <div class="contact-address__svg">
-                        <img src="img/icons/time.png" alt="">
-                    </div>
-                    <div class="contact-address__text">
-                        <h3 class="contact-address__name">We are open:</h3>
-                        <p class="contact-address__about">
-                            Monday - Thursday: 9:00 AM - 5:30 PM <br>
-                            Friday 9:00 AM - 6:00 PM <br>
-                            Saturday: 11:00 AM - 5:00 PM
-                        </p>
-                    </div>
-                </div>
-                <div class="contact-address__item">
-                    <div class="contact-address__svg">
-                        <img src="../img/icons/mail.png" alt="">
-                    </div>
-                    <div class="contact-address__text">
-                        <h3 class="contact-address__name">E-mail:</h3>
-                        <a href="" class="contact-address__email">shop@email.com</a>
-                    </div>
-                </div>
+            <div class="login__item">
+                <h4 class="login__title">New Customer?</h4>
+                <p class="login__text">
+                    Creating an account has many benefits: 
+                </p>
+                <ul class="login__list">
+                    <li class="login__point">Check out faster</li>
+                    <li class="login__point">Keep more than one address</li>
+                    <li class="login__point">Track orders and more</li>
+                </ul>
+                <button class="login__create-account">Create An Account</button>
             </div>
         </div>
     </div>

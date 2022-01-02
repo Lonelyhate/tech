@@ -1,0 +1,191 @@
+.customer-login {
+    padding-bottom: 56px;
+}
+.customer-login__path {
+}
+
+.customer-login__title {
+    font-size: 32px;
+    line-height: 48px;
+    font-weight: 600;
+    color: $colorBlack;
+    margin-bottom: 20px;
+}
+
+.login {
+    display: flex;
+    justify-content: center;
+}
+.login__item {
+    width: 564px;
+    background-color: $colorLight;
+    padding: 37px 57px 40px;
+    &:first-child{
+        margin-right: 34px;
+    }
+}
+.login__title {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 27px;
+    color: $colorBlack;
+    margin-bottom: 5px;
+}
+.login__text {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 30px;
+    color: $colorBlack;
+    margin-bottom: 5px;
+}
+.login__label {
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 27px;
+    color: $colorBlack;
+    span{
+        color: $colorRed;
+    }
+    
+}
+.login__input {
+    display: block;
+    width: 100%;
+    height: 50px;
+    font-weight: 300;
+    font-size: 14px;
+    padding-left: 17px;
+    border: 1px solid #A2A6B0;
+    border-radius: 4px;
+    outline: none;
+    &::placeholder{
+        color: $colorGrey;
+    }
+    &:nth-child(2){
+        margin-bottom: 10px;
+    }
+}
+.login__btns {
+    margin-top: 30px;
+}
+.login__sign {
+    width: 151px;
+    height: 50px;
+    font-weight: 600;
+    font-size: 14px;
+    background-color: $colorBlue;
+    color: $colorFFF;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+}
+.login__forgot {
+    background: none;
+    border: none;
+    font-weight: 400;
+    font-size: 14px;
+    height: 50px;
+    padding: 10px 15px;
+    cursor: pointer;
+    color: $colorBlue;
+}
+.login__list {
+    margin: 10px 0 35px;
+}
+.login__point{
+    font-size: 14px;
+    line-height: 20px;
+    color: $colorBlack;
+    font-weight: 300;
+    &::before{
+        content: '•';
+        margin-right: 10px;
+    }
+}
+.login__create-account {
+    width: 208px;
+    height: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    background-color: $colorBlue;
+    border-radius: 50px;
+    color: $colorFFF;
+    cursor: pointer;
+}
+
+@media (max-width: 900px) {
+    .customer-login {
+        padding-bottom: 27px;
+    }
+    .customer-login__title {
+        font-size: 18px;
+        line-height: 27px;
+        margin-bottom: 13px;
+    }
+    .login__item {
+        width: 50%;
+        padding: 20px 20px 32px 18px;
+        &:first-child{
+            margin-right: 21px;
+        }
+    }
+    .login__title {
+        font-size: 14px;
+        line-height: 21px;
+    }
+    .login__text {
+        font-size: 12px;
+        line-height: 22px;
+        margin-bottom: 10px;
+    }
+    .login__label {
+        font-size: 11px;
+        line-height: 23px;
+    }
+    .login__input {
+        height: 38px;
+        padding-left: 13px;
+        font-style: 12px;
+        &::placeholder{
+            font-size: 12px;
+        }
+    }
+    .login__btns {
+        margin-top: 15px;
+    }
+    .login__sign {
+        width: 133px;
+        height: 38px;
+        font-size: 13px;
+    }
+    .login__forgot {
+        font-size: 11px;
+        padding: 10px 10px;
+    }
+    .login__list {
+        margin-bottom: 22px;
+    }
+    .login__point {
+        font-size: 12px;
+        line-height: 22px;
+    }
+    .login__create-account {
+        height: 38px;
+        width: 183px;
+        font-size: 13px;
+
+    }
+}
+
+@media (max-width: 600px) {
+    .login{
+        flex-direction: column;
+        &__item{
+            width: 100%;
+            &:first-child{
+                margin: 0 0 16px 0;
+            }
+        }
+    }
+}

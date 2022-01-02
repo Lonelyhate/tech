@@ -1,6 +1,7 @@
 const pathCatalog = () => {
     const menuList = document.querySelector('.menu__list')
     const contactUs = document.querySelectorAll('.header-top__contsctus')
+    const logins = document.querySelectorAll('.sign-in')
     let pathLink = []
     menuList.addEventListener('click', e => {
         pathLink = []
@@ -32,6 +33,14 @@ const pathCatalog = () => {
         item.addEventListener('click', (e) => {
             pathLink = []
             pathLink.push('Contact Us')
+            localStorage.setItem('links-catalog', pathLink)
+        })
+    })
+
+    logins.forEach(item => {
+        item.addEventListener('click', () => {
+            pathLink = []
+            pathLink.push('Login')
             localStorage.setItem('links-catalog', pathLink)
         })
     })
