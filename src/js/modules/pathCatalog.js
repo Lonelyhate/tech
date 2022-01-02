@@ -1,5 +1,6 @@
 const pathCatalog = () => {
     const menuList = document.querySelector('.menu__list')
+    const contactUs = document.querySelectorAll('.header-top__contsctus')
     let pathLink = []
     menuList.addEventListener('click', e => {
         pathLink = []
@@ -25,6 +26,14 @@ const pathCatalog = () => {
         }
 
         localStorage.setItem('links-catalog', pathLink)
+    })
+
+    contactUs.forEach(item => {
+        item.addEventListener('click', (e) => {
+            pathLink = []
+            pathLink.push('Contact Us')
+            localStorage.setItem('links-catalog', pathLink)
+        })
     })
 
     const pathHTML = document.querySelector('.path')
