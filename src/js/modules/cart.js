@@ -10,10 +10,6 @@ const cart = () => {
     let addCart = 0
     let countProduct = 0
 
-    const randomId = () => {
-        return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-    };
-
     const priceWithoutSpaces = (str) => {
         return str.replace(/[^0-9,.]/g, ' ')
     };
