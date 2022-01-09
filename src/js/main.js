@@ -12,6 +12,7 @@ import selects from "./modules/selects.js"
 import filters from "./modules/filters.js"
 import textGradient from "./modules/textGradient.js"
 import productAbout from "./modules/productAbout.js"
+import summary from "./modules/summary.js"
 
 window.addEventListener('DOMContentLoaded', () => {
     //Провека с какого устройство
@@ -162,6 +163,9 @@ window.addEventListener('DOMContentLoaded', () => {
          //Текст градиента показать больше
         textGradient()
     } catch(e) {}
+
+    //форма корзины
+    summary()
 
     //закрытие окон
     closeWindows()
